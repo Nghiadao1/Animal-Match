@@ -23,17 +23,26 @@ public class Animal : MonoBehaviour
         if (isClick)
         {
             UpdatePos();
-            gameManager.MatchAnimal();
+            StartCoroutine(WaitMatchAnimal());
             isClick = false;
             GameManager.isMatched = false;
         }
         ArrangeAnimal();
     }
+    //coroutine
+    IEnumerator WaitMatchAnimal()
+    {
+        yield return new WaitForSeconds(0.2f);
+        gameManager.MatchAnimal();
+    }
     public void OnMouseDown()
     {
-        Debug.Log("Animal Type: " + animalType);
-        animalList.animalMatch.Add(gameObject);
-        isClick = true;
+        if (!isClick)
+        {
+            Debug.Log("Animal Type: " + animalType);
+            animalList.animalMatch.Add(gameObject);
+            isClick = true;
+        }
     }
     public void UpdatePos()
     {
