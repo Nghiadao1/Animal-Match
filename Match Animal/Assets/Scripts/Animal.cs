@@ -5,16 +5,18 @@ using UnityEngine;
 public class Animal : MonoBehaviour
 {
     public AnimalType animalType;
-    public AnimalList animalList;
+    private AnimalList animalList;
     public Transform posMatch;
-    public BoardMatchList boardMatchList;
-    public GameManager gameManager;
+    private BoardMatchList boardMatchList;
+    private GameManager gameManager;
+    //private ListContent listContent;
     private bool isClick;
     void Start()
     {
         animalList = GameObject.Find("Board").GetComponent<AnimalList>();
         boardMatchList = GameObject.Find("Board Match").GetComponent<BoardMatchList>();
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        //listContent = GameObject.Find("Content").GetComponent<ListContent>();
     }
     void Update()
     {
@@ -30,7 +32,6 @@ public class Animal : MonoBehaviour
     {
         Debug.Log("Animal Type: " + animalType);
         animalList.animalMatch.Add(gameObject);
-
         isClick = true;
     }
     public void UpdatePos()

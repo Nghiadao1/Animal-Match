@@ -19,25 +19,10 @@ public class AnimalList : MonoBehaviour
     }
     public void AddAnimal()
     {
-        for (int i = 0; i < numberOfDog; i++)
-        {
-            animals.Add(Resources.Load<GameObject>("Prefabs/Animal/Dog"));
-        }
-        for (int i = 0; i < numberOfCat; i++)
-        {
-            animals.Add(Resources.Load<GameObject>("Prefabs/Animal/Cat"));
-        }
-        for (int i = 0; i < numberOfBird; i++)
-        {
-            animals.Add(Resources.Load<GameObject>("Prefabs/Animal/Bird"));
-        }
-        for (int i = 0; i < numberOfFish; i++)
-        {
-            animals.Add(Resources.Load<GameObject>("Prefabs/Animal/Fish"));
-        }
-        for (int i = 0; i < numberOfRabbit; i++)
-        {
-            animals.Add(Resources.Load<GameObject>("Prefabs/Animal/Rabbit"));
-        }
+        for (int i = 0; i < numberOfDog; i++) animals.Add(Resources.Load<GameObject>("Prefabs/Animal/Dog"));
+        for (int i = 0; i < numberOfCat; i++) animals.Add(Resources.Load<GameObject>("Prefabs/Animal/Cat"));
+        for (int i = 0; i < numberOfBird; i++) animals.Add(Resources.Load<GameObject>("Prefabs/Animal/Bird"));
+        for (int i = 0; i < numberOfFish; i++) animals.Add(Resources.Load<GameObject>("Prefabs/Animal/Fish"));
+        for (int i = 0; i < numberOfRabbit; i++) animals.Add(Resources.Load<GameObject>("Prefabs/Animal/Rabbit"));
     }
 }
