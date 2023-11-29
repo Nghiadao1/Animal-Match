@@ -66,36 +66,41 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
         var row = pieceItem.Position.Row;
         var column = pieceItem.Position.Column;
         var direction = pieceItem.direction;
-        int layer = pieceItem.layerPiece;
         foreach (var dir in direction)
         {
             var newRow = row + dir.y;
             var newColumn = column + dir.x;
-            Debug.Log(newRow + " " + newColumn);
-            //find in PieceBoard have piece newrow newcolumn
-
             if (newRow >= 0 && newRow < Row && newColumn >= 0 && newColumn < Column)
             {
-                if (PieceBoard[newRow, newColumn] != null)
+                var piece = PieceBoard[newRow, newColumn];
+                if (piece != null && piece.layerPiece > pieceItem.layerPiece)
                 {
-                    if (PieceBoard[newRow, newColumn].layerPiece == layer)
+                    if (piece.layerPiece == pieceItem.layerPiece + 1)
                     {
-                        pieceItem._canPutOn = true;
+                        pieceItem._canPutOn = false;
+                        break;
                     }
+                    else return;
                 }
-                else
-                {
-                    count++;
-                }
+                else count++;
             }
+            else
+            {
+                pieceItem._canPutOn = true;
+                break;
+            }
+            if (count == 4) pieceItem._canPutOn = true;
         }
-        if (count == 4)
-            pieceItem._canPutOn = true;
-        else pieceItem._canPutOn = false;
-        if (pieceItem._canPutOn) count = 0;
+    }
+    public bool IsLocatedOn(PieceItemHandler piece)
+    {
+        return PieceBoard[piece.Position.Row, piece.Position.Column] != null;
     }
     public void RemoveFromPieceBoard(PieceItemHandler pieceItem)
     {
+        // PieceBoard[pieceItem.Position.Row, pieceItem.Position.Column] = null;
+        //disable pieceItem and remove from PieceBoard
+        //pieceItem.gameObject.SetActive(false);
         PieceBoard[pieceItem.Position.Row, pieceItem.Position.Column] = null;
     }
 }

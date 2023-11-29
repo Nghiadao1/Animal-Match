@@ -30,6 +30,7 @@ public class PieceItemHandler : MonoBehaviour
     void Start()
     {
         AddDirection();
+        PieceItemManager.Isblocked(this);
 
     }
     void Update()

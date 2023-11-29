@@ -35,7 +35,6 @@ public class GameModel : ScriptableObjectSingleton<GameModel>
         var instance = Instantiate(pfb, parent);
         return instance;
     }
-
     public PieceBoardModel GetPieceBoardModel(int level)
     {
         return boardModels[level];
