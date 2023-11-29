@@ -62,34 +62,24 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
     }
     public void Isblocked(PieceItemHandler pieceItem)
     {
-        int count = 0;
         var row = pieceItem.Position.Row;
         var column = pieceItem.Position.Column;
         var direction = pieceItem.direction;
+        pieceItem._canPutOn = true;
         foreach (var dir in direction)
         {
-            var newRow = row + dir.y;
-            var newColumn = column + dir.x;
+            var newRow = row + dir.x;
+            var newColumn = column + dir.y;
+
             if (newRow >= 0 && newRow < Row && newColumn >= 0 && newColumn < Column)
             {
                 var piece = PieceBoard[newRow, newColumn];
                 if (piece != null && piece.layerPiece > pieceItem.layerPiece)
                 {
-                    if (piece.layerPiece == pieceItem.layerPiece + 1)
-                    {
-                        pieceItem._canPutOn = false;
-                        break;
-                    }
-                    else return;
+                    pieceItem._canPutOn = false;
+                    break;
                 }
-                else count++;
             }
-            else
-            {
-                pieceItem._canPutOn = true;
-                break;
-            }
-            if (count == 4) pieceItem._canPutOn = true;
         }
     }
     public bool IsLocatedOn(PieceItemHandler piece)
