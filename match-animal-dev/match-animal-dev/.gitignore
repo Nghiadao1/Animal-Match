@@ -1,0 +1,10 @@
+/Logs/
+/Library/
+/Logs/
+/Temp/
+/UserSettings/
+/Packages/packages-lock.json
+*.DS_Store
+*.csproj
+*.sln
+/obj/
