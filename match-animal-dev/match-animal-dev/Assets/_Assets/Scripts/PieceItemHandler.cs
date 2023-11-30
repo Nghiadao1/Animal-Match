@@ -67,6 +67,7 @@ public class PieceItemHandler : MonoBehaviour
         pieceIconImage.sprite = Model.Sprite;
     }
 
+
     public void OnPieceIconClick()
     {
         Debug.Log($"Click piece: {Type}");

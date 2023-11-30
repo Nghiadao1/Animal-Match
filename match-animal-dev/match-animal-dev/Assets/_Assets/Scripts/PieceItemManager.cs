@@ -28,9 +28,6 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
 
     public PieceBoardModel BoardModel { get; private set; }
 
-
-
-
     public void InitPieceBoard(PieceBoardModel boardModel)
     {
         BoardModel = boardModel;
@@ -45,7 +42,7 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
                 for (var i = 0; i < pieceItemRoots.Count; i++)
                 {
                     var pieceItemHandler = GetPieceItemHandler(pieceModel.Type, pieceItemRoots[i]);
-                    pieceItemHandler.gameObject.tag = "Piece" + (i + 1).ToString();
+                    // pieceItemHandler.gameObject.tag = "Piece" + (i + 1).ToString();
                     pieceItemHandler.layerPiece = i + 1;
                     pieceItemHandlers.Add(pieceItemHandler);
                     PieceBoard[row, column] = pieceItemHandler;
@@ -55,11 +52,6 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
                 }
             }
     }
-
-    private PieceItemHandler GetPieceItemHandler(PieceType type, Transform root)
-    {
-        return GameModel.GetPieceItemInstance(type, root);
-    }
     public void Isblocked(PieceItemHandler pieceItem)
     {
         var row = pieceItem.Position.Row;
@@ -68,30 +60,33 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
         pieceItem._canPutOn = true;
         foreach (var dir in direction)
         {
-            var newRow = row + dir.x;
-            var newColumn = column + dir.y;
-
-            if (newRow >= 0 && newRow < Row && newColumn >= 0 && newColumn < Column)
+            var newRow = row + dir.y;
+            var newColumn = column + dir.x;
+            var newLayer = pieceItem.layerPiece + 1;
+            foreach (var piece in PieceItemHandlers)
             {
-                var piece = PieceBoard[newRow, newColumn];
-                if (piece != null && piece.layerPiece > pieceItem.layerPiece)
+                if (piece != null && piece.Position.Row == newRow && piece.Position.Column == newColumn && piece.layerPiece == newLayer)
                 {
+                    Debug.Log("Piece: " + piece.Position.Row + " " + piece.Position.Column + " " + piece.layerPiece + " " + pieceItem.layerPiece + " " + pieceItem.Position.Row + " " + pieceItem.Position.Column);
                     pieceItem._canPutOn = false;
                     break;
                 }
             }
         }
     }
+    private PieceItemHandler GetPieceItemHandler(PieceType type, Transform root)
+    {
+        return GameModel.GetPieceItemInstance(type, root);
+    }
+
     public bool IsLocatedOn(PieceItemHandler piece)
     {
         return PieceBoard[piece.Position.Row, piece.Position.Column] != null;
     }
     public void RemoveFromPieceBoard(PieceItemHandler pieceItem)
     {
-        // PieceBoard[pieceItem.Position.Row, pieceItem.Position.Column] = null;
-        //disable pieceItem and remove from PieceBoard
-        //pieceItem.gameObject.SetActive(false);
         PieceBoard[pieceItem.Position.Row, pieceItem.Position.Column] = null;
+        pieceItemHandlers.Remove(pieceItem);
     }
 }
 
