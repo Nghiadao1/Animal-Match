@@ -9,7 +9,13 @@ using UnityEngine.Events;
 public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
 {
 
-    [SerializeField] private int level;
+    public int level;
+    // level nhận database từ index của boardPiece tương ứng
+    public int Level
+    {
+        get => level;
+        set => level = value;
+    }
     [SerializeField] private UnityEvent onPieceMatches;
     [SerializeField] private Transform pieceItemPick;
     private WaitLine WaitLine => WaitLine.Instance;
@@ -31,9 +37,8 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
     }
     private void Init()
     {
-        level = 0;
-        var pieceBoardModel = GameModel.GetPieceBoardModel(level);
-        PieceItemManager.InitPieceBoard(pieceBoardModel);
+        // var pieceBoardModel = GameModel.GetPieceBoardModel(level);
+        PieceItemManager.InitPieceLayer();
         OnPieceMatches.AddListener(() => { Debug.LogError(" OnPieceMatches!"); });
     }
 
@@ -55,4 +60,5 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
     {
         Debug.Log("Lose Game");
     }
+
 }

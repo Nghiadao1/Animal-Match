@@ -27,10 +27,18 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
     private int Column => GameModel.Column;
 
     public PieceBoardModel BoardModel { get; private set; }
-
-    public void InitPieceBoard(PieceBoardModel boardModel)
+    public void InitPieceLayer()
+    {
+        for (int i = 0; i < pieceItemRoots.Count; i++)
+        {
+            var pieceBoardModel = GameModel.GetPieceBoardModel(i);
+            InitPieceBoard(pieceBoardModel, i);
+        }
+    }
+    public void InitPieceBoard(PieceBoardModel boardModel, int layer)
     {
         BoardModel = boardModel;
+        Debug.Log("layer " + layer);
         pieceItemHandlers = new List<PieceItemHandler>();
         PieceBoard = new PieceItemHandler[Row, Column];
         for (var row = 0; row < Row; row++)
@@ -39,17 +47,14 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
                 var index = row * Column + column;
                 var pieceModel = BoardModel[row, column];
                 pieceModel.Position = new Position(row, column);
-                for (var i = 0; i < pieceItemRoots.Count; i++)
-                {
-                    var pieceItemHandler = GetPieceItemHandler(pieceModel.Type, pieceItemRoots[i]);
-                    // pieceItemHandler.gameObject.tag = "Piece" + (i + 1).ToString();
-                    pieceItemHandler.layerPiece = i + 1;
-                    pieceItemHandlers.Add(pieceItemHandler);
-                    PieceBoard[row, column] = pieceItemHandler;
-                    Debug.Log(pieceItemHandler.Position.Row + " " + pieceItemHandler.Position.Column);
-                    pieceItemHandler.SetData(pieceModel);
-                    pieceItemHandler.gameObject.name = row + " " + column;
-                }
+                var pieceItemHandler = GetPieceItemHandler(pieceModel.Type, pieceItemRoots[layer]);
+                pieceItemHandler.layerPiece = layer + 1;
+                pieceItemHandlers.Add(pieceItemHandler);
+                PieceBoard[row, column] = pieceItemHandler;
+                Debug.Log(pieceItemHandler.Position.Row + " " + pieceItemHandler.Position.Column);
+                pieceItemHandler.SetData(pieceModel);
+                pieceItemHandler.gameObject.name = row + " " + column;
+
             }
     }
     public void Isblocked(PieceItemHandler pieceItem)
