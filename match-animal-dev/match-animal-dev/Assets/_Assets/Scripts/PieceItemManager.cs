@@ -29,6 +29,8 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
     public PieceBoardModel BoardModel { get; private set; }
     public void InitPieceLayer()
     {
+        pieceItemHandlers = new List<PieceItemHandler>();
+        PieceBoard = new PieceItemHandler[Row, Column];
         for (int i = 0; i < pieceItemRoots.Count; i++)
         {
             var pieceBoardModel = GameModel.GetPieceBoardModel(i);
@@ -39,8 +41,7 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
     {
         BoardModel = boardModel;
         Debug.Log("layer " + layer);
-        pieceItemHandlers = new List<PieceItemHandler>();
-        PieceBoard = new PieceItemHandler[Row, Column];
+
         for (var row = 0; row < Row; row++)
             for (var column = 0; column < Column; column++)
             {
@@ -70,6 +71,7 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
             // var newRow = row + dir.x;
             // var newColumn = column + dir.y;
             var newLayer = pieceItem.layerPiece + 1;
+            //so sánh với các pieceItem trên layer trên
             foreach (var piece in PieceItemHandlers)
             {
                 if (piece != null && piece.Position.Row == newRow && piece.Position.Column == newColumn && piece.layerPiece == newLayer)
