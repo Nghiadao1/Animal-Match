@@ -63,7 +63,8 @@ public class PieceItemHandler : MonoBehaviour
 
     private void UpdateUi()
     {
-        root.SetActive(true);
+        if (Type == PieceType.NONE) root.SetActive(false);
+        else root.SetActive(true);
         backgroundImage.gameObject.SetActive(false);
         pieceIconImage.sprite = Model.Sprite;
     }

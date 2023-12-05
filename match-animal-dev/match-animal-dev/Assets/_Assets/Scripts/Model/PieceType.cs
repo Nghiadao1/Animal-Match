@@ -50,5 +50,5 @@ public enum PieceType
     // TYPE_47 = 47,
     // TYPE_48 = 48,
     // TYPE_49 = 49,
-    NONE = -1
+    NONE = 11
 }

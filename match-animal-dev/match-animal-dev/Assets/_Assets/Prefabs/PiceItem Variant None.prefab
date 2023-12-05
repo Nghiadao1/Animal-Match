@@ -93,11 +93,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3720870960325387236, guid: 0b55281c42ecf401eb8bf83553f5e6f1, type: 3}
       propertyPath: m_Name
-      value: PiceItem Variant
+      value: PiceItem Variant None
       objectReference: {fileID: 0}
     - target: {fileID: 4475881070447960058, guid: 0b55281c42ecf401eb8bf83553f5e6f1, type: 3}
       propertyPath: model.type
-      value: -1
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b55281c42ecf401eb8bf83553f5e6f1, type: 3}

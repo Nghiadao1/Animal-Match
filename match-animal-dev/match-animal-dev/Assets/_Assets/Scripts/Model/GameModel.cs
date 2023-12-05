@@ -26,6 +26,7 @@ public class GameModel : ScriptableObjectSingleton<GameModel>
 
     private PieceItemHandler GetPieceItemPrefab(PieceType type)
     {
+        Debug.Log("type " + (int)type);
         return PieceItemHandlers[(int)type];
     }
 
