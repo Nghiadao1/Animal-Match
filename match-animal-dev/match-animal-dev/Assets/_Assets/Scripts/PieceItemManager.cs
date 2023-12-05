@@ -41,7 +41,6 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
     {
         BoardModel = boardModel;
         Debug.Log("layer " + layer);
-
         for (var row = 0; row < Row; row++)
             for (var column = 0; column < Column; column++)
             {
@@ -71,16 +70,13 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
             // var newRow = row + dir.x;
             // var newColumn = column + dir.y;
             var newLayer = pieceItem.layerPiece + 1;
-            //so sánh với các pieceItem trên layer trên
             foreach (var piece in PieceItemHandlers)
-            {
                 if (piece != null && piece.Position.Row == newRow && piece.Position.Column == newColumn && piece.layerPiece == newLayer)
                 {
                     Debug.Log("Piece: " + piece.Position.Row + " " + piece.Position.Column + " " + piece.layerPiece + " " + pieceItem.layerPiece + " " + pieceItem.Position.Row + " " + pieceItem.Position.Column);
                     pieceItem._canPutOn = false;
                     break;
                 }
-            }
         }
     }
     private PieceItemHandler GetPieceItemHandler(PieceType type, Transform root)

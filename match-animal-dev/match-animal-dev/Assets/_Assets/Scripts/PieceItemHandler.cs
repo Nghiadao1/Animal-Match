@@ -47,6 +47,7 @@ public class PieceItemHandler : MonoBehaviour
         direction.Add(Vector2Int.down);
         direction.Add(Vector2Int.left);
         direction.Add(-Vector2Int.one);
+        for (int i = 0; i < direction.Count; i++) if (layerPiece % 2 == 0) direction[i] = -direction[i];
     }
     public void SetData(PieceModel model)
     {

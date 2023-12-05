@@ -37,7 +37,6 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
     }
     private void Init()
     {
-        // var pieceBoardModel = GameModel.GetPieceBoardModel(level);
         PieceItemManager.InitPieceLayer();
         OnPieceMatches.AddListener(() => { Debug.LogError(" OnPieceMatches!"); });
     }
