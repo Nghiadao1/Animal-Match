@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager>
 {
     [SerializeField] private List<PieceItemHandler> pieceItemHandlers;
-
+    public bool IsWin => IsPieceItemNull();
     // private void Start()
     // {
     //     InitPieceBoard();
@@ -78,6 +78,10 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
                     break;
                 }
         }
+    }
+    public bool IsPieceItemNull()
+    {
+        return PieceItemHandlers.Count == 0;
     }
     private PieceItemHandler GetPieceItemHandler(PieceType type, Transform root)
     {

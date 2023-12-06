@@ -51,9 +51,9 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
         else if (!WaitLine.CanPutOn) LoseGame();
         else Debug.Log("Can't put on");
     }
-    private void WinGame()
+    public void WinGame()
     {
-        Debug.Log("Win Game");
+        if (PieceItemManager.IsWin) Debug.Log("Win Game");
     }
     private void LoseGame()
     {

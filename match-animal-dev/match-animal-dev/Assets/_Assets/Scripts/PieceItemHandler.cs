@@ -63,7 +63,11 @@ public class PieceItemHandler : MonoBehaviour
 
     private void UpdateUi()
     {
-        if (Type == PieceType.NONE) root.SetActive(false);
+        if (Type == PieceType.NONE)
+        {
+            PieceItemManager.RemoveFromPieceBoard(this);
+            root.SetActive(false);
+        }
         else root.SetActive(true);
         backgroundImage.gameObject.SetActive(false);
         pieceIconImage.sprite = Model.Sprite;
@@ -79,6 +83,6 @@ public class PieceItemHandler : MonoBehaviour
         Debug.Log($"Click piece: {Type}");
         //PieceItemManager.Isblocked(this);
         GameManager.Pick(this);
-
+        GameManager.WinGame();
     }
 }
