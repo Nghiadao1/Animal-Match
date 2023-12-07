@@ -35,6 +35,7 @@ public class GameState : PermanentMonoBehaviourSingleton<GameState>
     }
     public void SetData()
     {
+        var index = 0;
         for (int i = 0; i < gameModel.BoardModels.Count; i++)
         {
             var piece = gameModel.BoardModels[i];
@@ -44,8 +45,8 @@ public class GameState : PermanentMonoBehaviourSingleton<GameState>
                 for (int k = 0; k < pieceRow.PieceModels.Count; k++)
                 {
                     var pieceModel = pieceRow.PieceModels[k];
-                    var index = j * gameModel.Column + k;
                     var type = (PieceType)int.Parse(fields[index]);
+                    index++;
                     pieceModel.Type = type;
                 }
             }

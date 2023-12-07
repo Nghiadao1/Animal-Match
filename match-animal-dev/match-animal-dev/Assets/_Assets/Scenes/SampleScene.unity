@@ -1482,8 +1482,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameModel: {fileID: 11400000, guid: 662baedb0b783450b945b3e8dc0dadcf, type: 2}
   csv: {fileID: 0}
-  level: 1
-  fields: 
+  level: 2
+  fields: []
 --- !u!4 &1056073995
 Transform:
   m_ObjectHideFlags: 0
