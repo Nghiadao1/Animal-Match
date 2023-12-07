@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameModel
   m_EditorClassIdentifier: 
   pieceSprites:
-  - {fileID: 21300000, guid: cad9d876635001e47b24ed5199fe0d36, type: 3}
+  - {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: 79233cee76cfd6b47af37c7c221c3822, type: 3}
   - {fileID: 21300000, guid: 8bb20b6fa4bd7b74a8b13d5d983a6f7d, type: 3}
   - {fileID: 21300000, guid: 45ef14e24d5421340b9a3da92a5087f4, type: 3}
@@ -24,7 +24,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d7c34d9ab626f77488c1ac0f686d29ba, type: 3}
   - {fileID: 21300000, guid: 4d8573b16b9ac8c43a5ebf0fe6c21c7d, type: 3}
   - {fileID: 21300000, guid: f8711e57d753c7042a22b76eb89dea04, type: 3}
-  - {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 21300000, guid: cad9d876635001e47b24ed5199fe0d36, type: 3}
   - {fileID: 21300000, guid: 9cfda1da48b661249a76f1a1e326fd45, type: 3}
   - {fileID: 21300000, guid: 3253d50c7abc50a48b19deda87168f81, type: 3}
   - {fileID: 21300000, guid: 3178652785d5ab54ba91752df71c6bbd, type: 3}
@@ -72,27 +72,11 @@ MonoBehaviour:
       - type: 11
     - pieceModels:
       - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-    - pieceModels:
-      - type: 11
-      - type: 7
-      - type: 7
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 11
-    - pieceModels:
-      - type: 11
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
+      - type: 1
+      - type: 1
+      - type: 1
+      - type: 1
+      - type: 1
       - type: 11
     - pieceModels:
       - type: 11
@@ -101,6 +85,22 @@ MonoBehaviour:
       - type: 1
       - type: 1
       - type: 1
+      - type: 11
+    - pieceModels:
+      - type: 11
+      - type: 1
+      - type: 1
+      - type: 1
+      - type: 1
+      - type: 1
+      - type: 11
+    - pieceModels:
+      - type: 11
+      - type: 11
+      - type: 11
+      - type: 11
+      - type: 11
+      - type: 11
       - type: 11
     - pieceModels:
       - type: 11
@@ -133,23 +133,23 @@ MonoBehaviour:
       - type: 1
       - type: 1
       - type: 1
-      - type: 11
-      - type: 11
-    - pieceModels:
-      - type: 11
-      - type: 0
-      - type: 7
-      - type: 0
-      - type: 0
-      - type: 11
+      - type: 1
       - type: 11
     - pieceModels:
       - type: 11
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
+      - type: 1
+      - type: 1
+      - type: 1
+      - type: 1
+      - type: 1
       - type: 11
+    - pieceModels:
+      - type: 11
+      - type: 1
+      - type: 1
+      - type: 1
+      - type: 1
+      - type: 1
       - type: 11
     - pieceModels:
       - type: 11

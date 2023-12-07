@@ -1,6 +1,7 @@
 public enum PieceType
 {
-    TYPE_0 = 0,
+    NONE = 0,
+    TYPE_0 = 11,
     TYPE_1 = 1,
     TYPE_2 = 2,
     TYPE_3 = 3,
@@ -50,5 +51,5 @@ public enum PieceType
     // TYPE_47 = 47,
     // TYPE_48 = 48,
     // TYPE_49 = 49,
-    NONE = 11
+
 }

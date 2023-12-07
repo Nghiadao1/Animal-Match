@@ -51,7 +51,7 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
                 pieceItemHandler.layerPiece = layer + 1;
                 pieceItemHandlers.Add(pieceItemHandler);
                 PieceBoard[row, column] = pieceItemHandler;
-                Debug.Log(pieceItemHandler.Position.Row + " " + pieceItemHandler.Position.Column);
+                //Debug.Log(pieceItemHandler.Position.Row + " " + pieceItemHandler.Position.Column);
                 pieceItemHandler.SetData(pieceModel);
                 pieceItemHandler.gameObject.name = row + " " + column;
 
@@ -67,13 +67,11 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
         {
             var newRow = row + dir.y;
             var newColumn = column + dir.x;
-            // var newRow = row + dir.x;
-            // var newColumn = column + dir.y;
             var newLayer = pieceItem.layerPiece + 1;
             foreach (var piece in PieceItemHandlers)
                 if (piece != null && piece.Position.Row == newRow && piece.Position.Column == newColumn && piece.layerPiece == newLayer)
                 {
-                    Debug.Log("Piece: " + piece.Position.Row + " " + piece.Position.Column + " " + piece.layerPiece + " " + pieceItem.layerPiece + " " + pieceItem.Position.Row + " " + pieceItem.Position.Column);
+                    //Debug.Log("Piece: " + piece.Position.Row + " " + piece.Position.Column + " " + piece.layerPiece + " " + pieceItem.layerPiece + " " + pieceItem.Position.Row + " " + pieceItem.Position.Column);
                     pieceItem._canPutOn = false;
                     break;
                 }
