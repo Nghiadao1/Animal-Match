@@ -26,7 +26,8 @@ public class GameState : PermanentMonoBehaviourSingleton<GameState>
     private void UpdateLevelCSV()
     {
         csvLevel = Resources.Load<TextAsset>("CSVs/Levels/Level" + level);
-        csvLayer = Resources.Load<TextAsset>("CSVs/Layers/Layer1");
+        csvLayer = Resources.Load<TextAsset>("CSVs/Layers/Layer" + level);
+        //csvLayer = Resources.Load<TextAsset>("CSVs/Layers/Layer1");
     }
     public void LoadLayer()
     {
