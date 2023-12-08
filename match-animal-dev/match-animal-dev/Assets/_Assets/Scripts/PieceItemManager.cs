@@ -12,7 +12,7 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
     // }
 
     //[SerializeField] private Transform pieceItemRoot;
-    [SerializeField] private List<Transform> pieceItemRoots;
+    public List<Transform> pieceItemRoots;
     public List<PieceItemHandler> PieceItemHandlers
     {
         get => pieceItemHandlers;

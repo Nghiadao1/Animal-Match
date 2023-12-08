@@ -55,118 +55,232 @@ MonoBehaviour:
   boardModels:
   - pieceRowModels:
     - pieceModels:
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
     - pieceModels:
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
     - pieceModels:
-      - type: 11
+      - type: 0
       - type: 1
       - type: 1
       - type: 1
       - type: 1
       - type: 1
-      - type: 11
+      - type: 0
     - pieceModels:
-      - type: 11
+      - type: 0
       - type: 1
       - type: 1
       - type: 1
       - type: 1
       - type: 1
-      - type: 11
+      - type: 0
     - pieceModels:
-      - type: 11
+      - type: 0
       - type: 1
       - type: 1
       - type: 1
       - type: 1
       - type: 1
-      - type: 11
+      - type: 0
     - pieceModels:
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
     - pieceModels:
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
   - pieceRowModels:
     - pieceModels:
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
     - pieceModels:
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
     - pieceModels:
-      - type: 11
+      - type: 0
       - type: 1
       - type: 1
+      - type: 2
       - type: 1
       - type: 1
-      - type: 1
-      - type: 11
+      - type: 0
     - pieceModels:
-      - type: 11
+      - type: 0
+      - type: 2
       - type: 1
       - type: 1
       - type: 1
-      - type: 1
-      - type: 1
-      - type: 11
+      - type: 2
+      - type: 0
     - pieceModels:
-      - type: 11
+      - type: 0
       - type: 1
+      - type: 2
       - type: 1
+      - type: 2
       - type: 1
-      - type: 1
-      - type: 1
-      - type: 11
+      - type: 0
     - pieceModels:
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
     - pieceModels:
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
-      - type: 11
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+  - pieceRowModels:
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+  - pieceRowModels:
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
   pieceItemHandlers:
   - {fileID: 4475881070447960058, guid: 0b55281c42ecf401eb8bf83553f5e6f1, type: 3}
   - {fileID: 392586068994948116, guid: e2a6d2babbbbd4f7cbb29787b9316437, type: 3}
