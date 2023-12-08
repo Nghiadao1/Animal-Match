@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.PlayerLoop;
 public class PieceItemHandler : MonoBehaviour
 {
     [SerializeField] private GameObject root;
@@ -11,7 +12,6 @@ public class PieceItemHandler : MonoBehaviour
     [SerializeField] public int layerPiece;
     public bool _canPutOn;
     private bool _hasCleaned = true;
-
     private GameModel GameModel => GameModel.Instance;
     public PieceType Type => Model.Type;
 
@@ -27,8 +27,10 @@ public class PieceItemHandler : MonoBehaviour
     private PieceItemManager PieceItemManager => PieceItemManager.Instance;
     public bool IsEmpty => Type == PieceType.NONE || _hasCleaned;
     public List<Vector2Int> direction;
+    private LayerController LayerController;
     void Start()
     {
+        Init();
         AddDirection();
         //ieceItemManager.Isblocked(this);
 
@@ -40,6 +42,11 @@ public class PieceItemHandler : MonoBehaviour
         else pieceIconImage.color = Color.white;
 
     }
+    private void Init()
+    {
+        //layerController = layerController của scoreview nó đang nằm trong
+        LayerController = GetComponentInParent<LayerController>();
+    }
     public void AddDirection()
     {
         direction = new List<Vector2Int>();
@@ -47,8 +54,10 @@ public class PieceItemHandler : MonoBehaviour
         direction.Add(Vector2Int.down);
         direction.Add(Vector2Int.left);
         direction.Add(-Vector2Int.one);
-        for (int i = 0; i < direction.Count; i++) if (layerPiece % 2 == 0) direction[i] = -direction[i];
+        for (int i = 0; i < direction.Count; i++) direction[i] = direction[i] + direction[i] * (LayerController.stepLayer - 1);
+        Debug.Log(LayerController.stepLayer);
     }
+
     public void SetData(PieceModel model)
     {
         Model = model;
