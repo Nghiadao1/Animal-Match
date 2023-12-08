@@ -34,11 +34,16 @@ public class GameState : PermanentMonoBehaviourSingleton<GameState>
         var csvReader = new CsvReader();
         var csvData = csvReader.ReadCsv(csvLayer.text);
         foreach (var line in csvData)
-            foreach (var step in line)
+            for (int i = 0; i < line.Count; i++)
             {
-                int stepNumber = int.Parse(step);
-                Debug.Log("Step {0} hear" + stepNumber);
-                layerBase.IntanceGroup(stepNumber);
+                var layer = int.Parse(line[i]);
+                int stepNext;
+                if (i + 1 < line.Count)
+                    stepNext = int.Parse(line[i + 1]);
+                else
+                    stepNext = 0;
+                Debug.Log("stepNext " + stepNext);
+                layerBase.IntanceGroup(layer, stepNext, layerBase.transform);
             }
     }
     public void LoadLevel()

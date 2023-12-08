@@ -65,8 +65,8 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
         pieceItem._canPutOn = true;
         foreach (var dir in direction)
         {
-            var newRow = row + dir.y;
-            var newColumn = column + dir.x;
+            var newRow = row + dir.x;
+            var newColumn = column + dir.y;
             var newLayer = pieceItem.layerPiece + 1;
             foreach (var piece in PieceItemHandlers)
                 if (piece != null && piece.Position.Row == newRow && piece.Position.Column == newColumn && piece.layerPiece == newLayer)
