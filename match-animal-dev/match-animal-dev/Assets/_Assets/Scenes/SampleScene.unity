@@ -987,11 +987,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5055125818222920854, guid: 2213765a290c19c4e8b5bac964c15fb5, type: 3}
       propertyPath: StepCol
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5055125818222920854, guid: 2213765a290c19c4e8b5bac964c15fb5, type: 3}
       propertyPath: StepRow
-      value: -5
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 5055125818222920854, guid: 2213765a290c19c4e8b5bac964c15fb5, type: 3}
       propertyPath: stepCol

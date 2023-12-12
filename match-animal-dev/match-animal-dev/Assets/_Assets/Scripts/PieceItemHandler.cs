@@ -58,8 +58,8 @@ public class PieceItemHandler : MonoBehaviour
         {
             // compare this step and next step
             //Bug can not instance true
-            if (LayerController.stepNextLayer == +-1)
-                direction[i] = direction[i] * (LayerController.stepNextLayer);
+
+            direction[i] = direction[i] * (LayerController.stepNextLayer);
         }
     }
 
