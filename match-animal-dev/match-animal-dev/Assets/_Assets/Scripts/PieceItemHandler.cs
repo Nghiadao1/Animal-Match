@@ -56,6 +56,8 @@ public class PieceItemHandler : MonoBehaviour
         direction.Add(-Vector2Int.one);
         for (int i = 0; i < direction.Count; i++)
         {
+            // compare this step and next step
+            //Bug can not instance true
             if (LayerController.stepNextLayer == +-1)
                 direction[i] = direction[i] * (LayerController.stepNextLayer);
         }
