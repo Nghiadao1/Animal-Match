@@ -58,7 +58,7 @@ public class CsvReader
         return csvData;
     }
 
-    private List<string> ParseCsvLine(string line)
+    public List<string> ParseCsvLine(string line)
     {
         List<string> fields = new List<string>();
 

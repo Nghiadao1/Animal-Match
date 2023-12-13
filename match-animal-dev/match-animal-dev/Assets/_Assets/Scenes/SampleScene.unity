@@ -214,7 +214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &150524519
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1744,9 +1744,11 @@ MonoBehaviour:
   gameModel: {fileID: 11400000, guid: 662baedb0b783450b945b3e8dc0dadcf, type: 2}
   csvLevel: {fileID: 0}
   csvLayer: {fileID: 0}
+  csvModel: {fileID: 0}
   layerBase: {fileID: 1221827306}
   level: 1
   fields: []
+  models: 
 --- !u!114 &1056073996
 MonoBehaviour:
   m_ObjectHideFlags: 0
