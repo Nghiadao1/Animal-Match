@@ -11,7 +11,7 @@ public class EnableGird : MonoBehaviour
     void Awake()
     {
         Init();
-        Invoke("DisableGirdLayoutGroup", 1f);
+        Invoke("DisableGirdLayoutGroup", 0.5f);
     }
     public void Init()
     {
