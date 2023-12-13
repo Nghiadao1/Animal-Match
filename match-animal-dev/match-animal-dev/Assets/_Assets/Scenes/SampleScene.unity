@@ -214,7 +214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &150524519
 RectTransform:
   m_ObjectHideFlags: 0
@@ -588,7 +588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &431912741
 Transform:
   m_ObjectHideFlags: 0
@@ -1745,7 +1745,7 @@ MonoBehaviour:
   csvLevel: {fileID: 0}
   csvLayer: {fileID: 0}
   layerBase: {fileID: 1221827306}
-  level: 4
+  level: 1
   fields: []
 --- !u!114 &1056073996
 MonoBehaviour:
@@ -2887,7 +2887,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1852432978
 Transform:
   m_ObjectHideFlags: 0
