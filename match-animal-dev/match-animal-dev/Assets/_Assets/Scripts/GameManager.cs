@@ -21,6 +21,7 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
     private WaitLine WaitLine => WaitLine.Instance;
     public GameModel GameModel => GameModel.Instance;
     private PieceItemManager PieceItemManager => PieceItemManager.Instance;
+    private PanelManager PanelManager => PanelManager.Instance;
     public UnityEvent OnPieceMatches
     {
         get => onPieceMatches;
@@ -53,11 +54,11 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
     }
     public void WinGame()
     {
-        if (PieceItemManager.IsWin) Debug.Log("Win Game");
+        if (PieceItemManager.IsWin) PanelManager.ShowPanelWin();
     }
     private void LoseGame()
     {
-        Debug.Log("Lose Game");
+        PanelManager.ShowPanelLose();
     }
 
 }
