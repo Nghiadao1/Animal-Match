@@ -64,68 +64,11 @@ MonoBehaviour:
       - type: 0
     - pieceModels:
       - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-    - pieceModels:
-      - type: 0
       - type: 1
       - type: 1
       - type: 1
       - type: 1
       - type: 1
-      - type: 0
-    - pieceModels:
-      - type: 0
-      - type: 1
-      - type: 1
-      - type: 1
-      - type: 1
-      - type: 1
-      - type: 0
-    - pieceModels:
-      - type: 0
-      - type: 1
-      - type: 1
-      - type: 1
-      - type: 1
-      - type: 1
-      - type: 0
-    - pieceModels:
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-    - pieceModels:
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-  - pieceRowModels:
-    - pieceModels:
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-    - pieceModels:
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
       - type: 0
     - pieceModels:
       - type: 0
@@ -137,68 +80,11 @@ MonoBehaviour:
       - type: 0
     - pieceModels:
       - type: 0
-      - type: 2
       - type: 1
       - type: 1
       - type: 1
-      - type: 2
-      - type: 0
-    - pieceModels:
-      - type: 0
       - type: 1
-      - type: 2
       - type: 1
-      - type: 2
-      - type: 1
-      - type: 0
-    - pieceModels:
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-    - pieceModels:
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-  - pieceRowModels:
-    - pieceModels:
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-    - pieceModels:
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-    - pieceModels:
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-    - pieceModels:
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
-      - type: 0
       - type: 0
     - pieceModels:
       - type: 0
@@ -235,12 +121,167 @@ MonoBehaviour:
       - type: 0
     - pieceModels:
       - type: 0
+      - type: 1
+      - type: 1
+      - type: 2
+      - type: 1
+      - type: 1
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 2
+      - type: 1
+      - type: 1
+      - type: 1
+      - type: 2
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 1
+      - type: 2
+      - type: 1
+      - type: 2
+      - type: 1
+      - type: 0
+    - pieceModels:
       - type: 0
       - type: 0
       - type: 0
       - type: 0
       - type: 0
       - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+  - pieceRowModels:
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 1
+      - type: 1
+      - type: 1
+      - type: 1
+      - type: 1
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 1
+      - type: 1
+      - type: 1
+      - type: 1
+      - type: 1
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 1
+      - type: 1
+      - type: 1
+      - type: 1
+      - type: 1
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+  - pieceRowModels:
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 1
+      - type: 1
+      - type: 2
+      - type: 1
+      - type: 1
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 2
+      - type: 1
+      - type: 1
+      - type: 1
+      - type: 2
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 1
+      - type: 2
+      - type: 2
+      - type: 2
+      - type: 1
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+  - pieceRowModels:
     - pieceModels:
       - type: 0
       - type: 0
@@ -279,6 +320,193 @@ MonoBehaviour:
       - type: 0
       - type: 0
       - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+  - pieceRowModels:
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 1
+      - type: 0
+      - type: 1
+      - type: 0
+      - type: 0
+  - pieceRowModels:
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 1
+      - type: 0
+      - type: 1
+      - type: 0
+      - type: 0
+  - pieceRowModels:
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+      - type: 0
+    - pieceModels:
+      - type: 0
+      - type: 0
+      - type: 1
+      - type: 0
+      - type: 1
       - type: 0
       - type: 0
   pieceItemHandlers:

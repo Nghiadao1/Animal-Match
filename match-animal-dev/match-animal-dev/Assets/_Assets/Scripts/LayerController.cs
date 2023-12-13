@@ -21,8 +21,9 @@ public class LayerController : MonoBehaviour
     public void IntanceGroup(int stepNumber, int nextStep, Transform pos)
     {
         stepThisLayer = stepNumber;
-        stepNextLayer = nextStep;
-        var layer = Instantiate(this, pos.transform.position + new Vector3(stepThisLayer * StepCol * thisLayer, stepThisLayer * StepRow * thisLayer, 0), Quaternion.identity);
+        if (nextStep > 0) stepNextLayer = 1;
+        else if (nextStep < 0) stepNextLayer = -1;
+        var layer = Instantiate(this, pos.transform.position + new Vector3(stepThisLayer * StepCol, stepThisLayer * StepRow, 0), Quaternion.identity);
         layer.transform.SetParent(GameObject.Find("-----GameVIew-----").transform);
         var content = layer.transform.Find("Viewport/Content");
         PieceItemManager.pieceItemRoots.Add(content);
