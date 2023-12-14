@@ -38,10 +38,23 @@ public class PieceItemHandler : MonoBehaviour
     void Update()
     {
         PieceItemManager.Isblocked(this);
-        if (!_canPutOn) pieceIconImage.color = Color.grey;
-        else pieceIconImage.color = Color.white;
-
+        UpdateColor();
     }
+
+    private void UpdateColor()
+    {
+        if (!_canPutOn)
+        {
+            pieceIconImage.color = Color.grey;
+            backgroundImage.color = Color.grey;
+        }
+        else
+        {
+            pieceIconImage.color = Color.white;
+            backgroundImage.color = Color.white;
+        }
+    }
+
     private void Init()
     {
         //layerController = layerController của scoreview nó đang nằm trong

@@ -9,11 +9,11 @@ public class GameState : PermanentMonoBehaviourSingleton<GameState>
     [SerializeField] private TextAsset csvLayer;
     [SerializeField] private TextAsset csvModel;
     public LayerController layerBase;
-    [SerializeField] private int level;
     [SerializeField] private List<string> fieldList = new List<string>();
     [SerializeField] private List<int> models = new List<int>();
     // private PieceItemManager PieceItemManager => PieceItemManager.Instance;
-    //public GameManager GameManager => GameManager.Instance;
+    public GameManager GameManager => GameManager.Instance;
+    [SerializeField] private int level => GameManager.Level;
     void Start()
     {
         Init();
