@@ -44,7 +44,7 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
         for (var row = 0; row < Row; row++)
             for (var column = 0; column < Column; column++)
             {
-                var index = row * Column + column;
+                //var index = row * Column + column;
                 var pieceModel = BoardModel[row, column];
                 pieceModel.Position = new Position(row, column);
                 var pieceItemHandler = GetPieceItemHandler(pieceModel.Type, pieceItemRoots[layer]);

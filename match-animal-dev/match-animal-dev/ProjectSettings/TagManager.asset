@@ -7,6 +7,7 @@ TagManager:
   - Piece1
   - Piece2
   - Piece3
+  - Piece
   layers:
   - Default
   - TransparentFX

@@ -7,7 +7,7 @@ public class PieceItemHandler : MonoBehaviour
 {
     [SerializeField] private GameObject root;
     [SerializeField] private Image backgroundImage;
-    [SerializeField] private Image pieceIconImage;
+    [SerializeField] public Image pieceIconImage;
     [SerializeField] private PieceModel model;
     [SerializeField] public int layerPiece;
     public bool _canPutOn;

@@ -37,7 +37,7 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
 {
     [SerializeField] private List<WaitPlase> line;
     [SerializeField] private bool shouldLog = true;
-    private List<PiecePair> _piecePairs;
+    [SerializeField] private List<PiecePair> _piecePairs;
     private int _waitingPieceCount;
     PieceItemManager PieceItemManager => PieceItemManager.Instance;
     public bool CanPutOn => !IsFull();
@@ -66,6 +66,8 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
             {
                 if (_waitingPieceCount >= line.Count) return;
                 line[_waitingPieceCount++]?.PutOn(piece);
+                line[_waitingPieceCount + 1].RemovePiece();
+
             }
         }
     }
@@ -82,6 +84,7 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
         {
             piecePair.Clean();
             Remove(piecePair);
+            Log($"PiecePair {piecePair.Type} has matches");
         }
     }
     private PiecePair GetPiecePair(PieceType type)
