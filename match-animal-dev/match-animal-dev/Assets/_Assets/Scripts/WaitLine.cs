@@ -55,7 +55,6 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
         if (IsFull()) return;
         AddToPiecePairs(pieceItem);
         ArrangePiece();
-        //remove piece from PieceBoard
         PieceItemManager.RemoveFromPieceBoard(pieceItem);
     }
     private void ArrangePiece()

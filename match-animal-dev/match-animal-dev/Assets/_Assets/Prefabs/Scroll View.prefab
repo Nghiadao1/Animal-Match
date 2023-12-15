@@ -121,7 +121,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9096047714941019744}
   m_Father: {fileID: 0}
@@ -215,8 +215,8 @@ MonoBehaviour:
   thisLayer: 0
   stepThisLayer: 0
   stepNextLayer: 0
-  StepRow: 0
-  StepCol: 0
+  StepRow: -10
+  StepCol: 10
 --- !u!1 &9096047716236490815
 GameObject:
   m_ObjectHideFlags: 0
