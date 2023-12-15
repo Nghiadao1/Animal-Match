@@ -19,28 +19,21 @@ public class WaitPlase : MonoBehaviour
     }
     void Update()
     {
-
-        // pieceWait = place.transform.Find("Piece").gameObject;
-        //set piece wait = gameobject piece have tag "Piece" is child of piece
-        if (pieceItem != null)
-            piece.gameObject.SetActive(true);
-        else
-            piece.gameObject.SetActive(false);
+        CheckHavePieceWait();
     }
+
+    private void CheckHavePieceWait()
+    {
+        if (place.transform.GetChild(0).gameObject.CompareTag("Piece")) piece.SetActive(true);
+        else piece.SetActive(false);
+    }
+
     public void PutOn(PieceItemHandler pieceItems)
     {
-        //this.pieceItem = null;
-        if (pieceItems != null)
-            this.pieceItem = pieceItems;
-        else
-            this.pieceItem = null;
+        this.pieceItem = pieceItems;
         pieceItems.transform.position = position;
         pieceItems.transform.SetParent(place.transform);
-        // pieceWait = pieceItems.gameObject;
         GetPieceWait(pieceItems);
-        // pieceItem.gameObject.SetActive(false);
-        //RemovePiece(pieceItem);
-
     }
     public void Empty()
     {
