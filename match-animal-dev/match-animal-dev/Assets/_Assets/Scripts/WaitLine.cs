@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 public class PiecePair
 {
     private const int MATCHING_NUMBER = 3;
@@ -27,8 +28,10 @@ public class PiecePair
         foreach (var piece in _pieces)
         {
             //remove piece from list pice item Handler
-
-            Object.Destroy(piece.gameObject, DELAY_TIME_DESTROY_PIECE);
+            piece.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBounce).OnComplete(() =>
+            {
+                Object.Destroy(piece.gameObject, DELAY_TIME_DESTROY_PIECE);
+            });
         }
         _pieces.Clear();
     }

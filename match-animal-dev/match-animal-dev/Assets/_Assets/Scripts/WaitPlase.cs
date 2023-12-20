@@ -13,7 +13,7 @@ public class WaitPlase : MonoBehaviour
     public GameObject pieceWait;
     public Vector3 position => place.transform.position;
     //public GameObject piece;
-    public Image imagePiece;
+    //public Image imagePiece;
     void Start()
     {
         place = gameObject;
@@ -45,7 +45,7 @@ public class WaitPlase : MonoBehaviour
     {
         this.pieceItem = pieceItems;
         DotweenMovePiece(pieceItems);
-        GetPieceWait(pieceItems);
+        //GetPieceWait(pieceItems);
     }
     public void DotweenMovePiece(PieceItemHandler pieceItems)
     {
@@ -66,10 +66,10 @@ public class WaitPlase : MonoBehaviour
     {
         return pieceItem == null;
     }
-    public void GetPieceWait(PieceItemHandler pieceItem)
-    {
-        imagePiece.sprite = pieceItem.pieceIconImage.sprite;
-    }
+    // public void GetPieceWait(PieceItemHandler pieceItem)
+    // {
+    //     imagePiece.sprite = pieceItem.pieceIconImage.sprite;
+    // }
     public void RemovePiece()
     {
         this.pieceItem = null;
