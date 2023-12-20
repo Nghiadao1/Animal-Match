@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System.Threading.Tasks.Sources;
 public class PiecePair
 {
     private const int MATCHING_NUMBER = 3;
@@ -56,8 +57,12 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
     public void AddPiece(PieceItemHandler pieceItem)
     {
         if (IsFull()) return;
-        AddToPiecePairs(pieceItem);
+        var type = pieceItem.Type;
+        var piecePair = GetPiecePair(type);
+        piecePair.Add(pieceItem);
+        //AddToPiecePairs(pieceItem);
         ArrangePiece();
+        CheckMatches(piecePair);
         PieceItemManager.RemoveFromPieceBoard(pieceItem);
     }
     private void ArrangePiece()
@@ -69,16 +74,14 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
             {
                 if (_waitingPieceCount >= line.Count) return;
                 line[_waitingPieceCount++]?.PutOn(piece);
-
             }
         }
     }
     void AddToPiecePairs(PieceItemHandler pieceItem)
     {
-        var type = pieceItem.Type;
-        var piecePair = GetPiecePair(type);
-        piecePair.Add(pieceItem);
-        CheckMatches(piecePair);
+
+
+
     }
     private void CheckMatches(PiecePair piecePair)
     {
@@ -88,6 +91,7 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
             Remove(piecePair);
             Log($"PiecePair {piecePair.Type} has matches");
         }
+        Invoke("ArrangePiece", 0.5f);
     }
     private PiecePair GetPiecePair(PieceType type)
     {

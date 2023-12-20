@@ -49,7 +49,7 @@ public class WaitPlase : MonoBehaviour
     }
     public void DotweenMovePiece(PieceItemHandler pieceItems)
     {
-        pieceItems.transform.DOMove(position, 0.5f).SetEase(Ease.Flash).OnComplete(() =>
+        pieceItems.transform.DOMove(position, 0.2f).SetEase(Ease.Flash).OnComplete(() =>
         {
             pieceItems.transform.position = position;
             pieceItems.transform.SetParent(place.transform);
