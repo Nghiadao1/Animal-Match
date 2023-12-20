@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 using Unity.VisualScripting;
+using DG.Tweening;
 [Serializable]
 public class WaitPlase : MonoBehaviour
 {
@@ -24,16 +25,36 @@ public class WaitPlase : MonoBehaviour
 
     private void CheckHavePieceWait()
     {
-        if (place.transform.GetChild(0).gameObject.CompareTag("Piece")) piece.SetActive(true);
-        else piece.SetActive(false);
+        SetViewPieceWaitline();
+    }
+
+    private void SetViewPieceWaitline()
+    {
+        foreach (Transform child in place.transform)
+        {
+            if (child.gameObject.tag == "Piece")
+            {
+                piece.SetActive(true);
+                //child.gameObject.SetActive(false);
+            }
+            else piece.SetActive(false);
+        }
     }
 
     public void PutOn(PieceItemHandler pieceItems)
     {
         this.pieceItem = pieceItems;
-        pieceItems.transform.position = position;
-        pieceItems.transform.SetParent(place.transform);
+        DotweenMovePiece(pieceItems);
         GetPieceWait(pieceItems);
+    }
+    public void DotweenMovePiece(PieceItemHandler pieceItems)
+    {
+        pieceItems.transform.DOMove(position, 0.5f).SetEase(Ease.Flash).OnComplete(() =>
+        {
+            pieceItems.transform.position = position;
+            pieceItems.transform.SetParent(place.transform);
+            //pieceItems.gameObject.SetActive(false);
+        });
     }
     public void Empty()
     {

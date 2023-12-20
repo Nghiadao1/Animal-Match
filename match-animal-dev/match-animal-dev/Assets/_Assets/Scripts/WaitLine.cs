@@ -66,7 +66,6 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
             {
                 if (_waitingPieceCount >= line.Count) return;
                 line[_waitingPieceCount++]?.PutOn(piece);
-                // line[_waitingPieceCount + 1]?.RemovePiece();
 
             }
         }

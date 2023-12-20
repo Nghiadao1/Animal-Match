@@ -25,12 +25,12 @@ public class LayerController : MonoBehaviour
         else if (nextStep < 0) stepNextLayer = -1;
         var layer = Instantiate(this, pos.transform.position + new Vector3(stepThisLayer * StepCol, stepThisLayer * StepRow, 0), Quaternion.identity);
         layer.transform.SetParent(GameObject.Find("-----GameVIew-----").transform);
-        //layer RectTransform = this RectTransform
         layer.GetComponent<RectTransform>().sizeDelta = this.GetComponent<RectTransform>().sizeDelta;
         var content = layer.transform.Find("Viewport/Content");
         PieceItemManager.pieceItemRoots.Add(content);
         //get index of this content in PieceItemRoots
         thisLayer = PieceItemManager.pieceItemRoots.IndexOf(content) + 1;
+        layer.transform.localScale = new Vector3(1, 1, 1);
 
     }
 }
