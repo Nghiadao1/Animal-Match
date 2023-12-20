@@ -12,7 +12,7 @@ public class WaitPlase : MonoBehaviour
     public PieceItemHandler pieceItem;
     public GameObject pieceWait;
     public Vector3 position => place.transform.position;
-    public GameObject piece;
+    //public GameObject piece;
     public Image imagePiece;
     void Start()
     {
@@ -25,21 +25,21 @@ public class WaitPlase : MonoBehaviour
 
     private void CheckHavePieceWait()
     {
-        SetViewPieceWaitline();
+        //SetViewPieceWaitline();
     }
 
-    private void SetViewPieceWaitline()
-    {
-        foreach (Transform child in place.transform)
-        {
-            if (child.gameObject.tag == "Piece")
-            {
-                piece.SetActive(true);
-                //child.gameObject.SetActive(false);
-            }
-            else piece.SetActive(false);
-        }
-    }
+    // private void SetViewPieceWaitline()
+    // {
+    //     foreach (Transform child in place.transform)
+    //     {
+    //         if (child.gameObject.tag == "Piece")
+    //         {
+    //             piece.SetActive(true);
+    //             //child.gameObject.SetActive(false);
+    //         }
+    //         else piece.SetActive(false);
+    //     }
+    // }
 
     public void PutOn(PieceItemHandler pieceItems)
     {
