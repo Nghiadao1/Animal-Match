@@ -8,6 +8,7 @@ TagManager:
   - Piece2
   - Piece3
   - Piece
+  - LayerBase
   layers:
   - Default
   - TransparentFX

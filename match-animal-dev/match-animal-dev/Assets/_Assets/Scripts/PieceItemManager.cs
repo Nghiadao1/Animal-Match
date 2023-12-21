@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager>
 {
@@ -51,7 +52,6 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
                 pieceItemHandler.layerPiece = layer + 1;
                 pieceItemHandlers.Add(pieceItemHandler);
                 PieceBoard[row, column] = pieceItemHandler;
-                //Debug.Log(pieceItemHandler.Position.Row + " " + pieceItemHandler.Position.Column);
                 pieceItemHandler.SetData(pieceModel);
                 pieceItemHandler.gameObject.name = row + " " + column;
 
@@ -95,5 +95,21 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
         PieceBoard[pieceItem.Position.Row, pieceItem.Position.Column] = null;
         pieceItemHandlers.Remove(pieceItem);
     }
+    public void Restart()
+    {
+        foreach (var pieceItem in PieceItemHandlers)
+        {
+            pieceItem.Restart();
+        }
+    }
+    public void RestartLayer()
+    {
+        foreach (var itemRoot in pieceItemRoots)
+        {
+            var girdLayoutGroup = itemRoot.gameObject.GetComponent<EnableGird>();
+            girdLayoutGroup.Restart();
+        }
+    }
+
 }
 

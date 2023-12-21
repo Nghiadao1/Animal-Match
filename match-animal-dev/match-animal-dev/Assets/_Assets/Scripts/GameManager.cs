@@ -55,5 +55,10 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
     {
         PanelManager.ShowPanelLose();
     }
+    public void Restart()
+    {
+        PieceItemManager.Restart();
+        WaitLine.Restart();
+    }
 
 }

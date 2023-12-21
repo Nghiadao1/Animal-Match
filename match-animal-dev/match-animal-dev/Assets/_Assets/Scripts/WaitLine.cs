@@ -127,5 +127,14 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
     {
         if (shouldLog) print($"[{name}]: {message}");
     }
+    public void Restart()
+    {
+        foreach (var piecePair in _piecePairs)
+        {
+            piecePair.Clean();
+        }
+        _piecePairs.Clear();
+        _waitingPieceCount = 0;
+    }
 
 }
