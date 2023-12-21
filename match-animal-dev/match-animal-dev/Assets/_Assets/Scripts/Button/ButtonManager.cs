@@ -12,12 +12,7 @@ public class ButtonManager : MonoBehaviour
         GameManager.Instance.Restart();
         PieceItemManager.InitPieceLayer();
         PieceItemManager.RestartLayer();
-        Invoke("WaitHidePanel", 0f);
-
-    }
-
-    private void WaitHidePanel()
-    {
         PanelManager.HidePanelLose();
+
     }
 }

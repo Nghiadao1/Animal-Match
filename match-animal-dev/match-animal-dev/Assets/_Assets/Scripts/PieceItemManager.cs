@@ -97,9 +97,14 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
     }
     public void Restart()
     {
-        foreach (var pieceItem in PieceItemHandlers)
+        foreach (var itemRoot in pieceItemRoots)
         {
-            pieceItem.Restart();
+            //destroy all piece item in itemRoot
+            foreach (Transform child in itemRoot)
+            {
+                PieceItemManager.Instance.RemoveFromPieceBoard(child.GetComponent<PieceItemHandler>());
+                Destroy(child.gameObject, 0f);
+            }
         }
     }
     public void RestartLayer()

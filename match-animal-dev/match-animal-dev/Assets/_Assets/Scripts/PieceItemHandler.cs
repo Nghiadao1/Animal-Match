@@ -94,7 +94,7 @@ public class PieceItemHandler : MonoBehaviour
         {
             PieceItemManager.RemoveFromPieceBoard(this);
             root.SetActive(false);
-            Destroy(gameObject, 0.35f);
+            // Destroy(gameObject, 0.35f);
         }
         else root.SetActive(true);
         backgroundImage.gameObject.SetActive(true);
@@ -113,12 +113,12 @@ public class PieceItemHandler : MonoBehaviour
         GameManager.Pick(this);
         GameManager.WinGame();
     }
-    public void Restart()
-    {
-        transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBounce).OnComplete(() =>
-            {
-                PieceItemManager.RemoveFromPieceBoard(this);
-                Destroy(gameObject, 0f);
-            });
-    }
+    // public void Restart()
+    // {
+    //     transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBounce).OnComplete(() =>
+    //         {
+    //             PieceItemManager.RemoveFromPieceBoard(this);
+    //             Destroy(gameObject, 0f);
+    //         });
+    // }
 }
