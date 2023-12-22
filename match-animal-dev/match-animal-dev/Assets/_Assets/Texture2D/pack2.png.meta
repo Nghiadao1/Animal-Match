@@ -2558,7 +2558,7 @@ TextureImporter:
         serializedVersion: 2
         x: 1710
         y: 4
-        width: 48
+        width: 78
         height: 63
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -2569,48 +2569,6 @@ TextureImporter:
       bones: []
       spriteID: b174317c6a5f1464caf4fa914336be13
       internalID: 856423361
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pack2_117
-      rect:
-        serializedVersion: 2
-        x: 1761
-        y: 20
-        width: 12
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f585f622469ec3744b3b92879563ce97
-      internalID: 988864810
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pack2_118
-      rect:
-        serializedVersion: 2
-        x: 1771
-        y: 10
-        width: 16
-        height: 51
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 645a788b6e367a74eacbbe400abcb2c9
-      internalID: -1725532146
       vertices: []
       indices: 
       edges: []

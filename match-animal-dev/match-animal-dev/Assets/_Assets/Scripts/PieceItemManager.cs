@@ -115,6 +115,11 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
             girdLayoutGroup.Restart();
         }
     }
+    public void AddToPieceBoard(PieceItemHandler pieceItem)
+    {
+        PieceBoard[pieceItem.Position.Row, pieceItem.Position.Column] = pieceItem;
+
+    }
 
 }
 

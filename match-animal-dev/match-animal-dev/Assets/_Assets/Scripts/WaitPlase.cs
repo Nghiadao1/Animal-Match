@@ -20,7 +20,8 @@ public class WaitPlase : MonoBehaviour
     }
     void Update()
     {
-        CheckHavePieceWait();
+        //CheckHavePieceWait();
+        //SetViewPieceWaitline();
     }
 
     private void CheckHavePieceWait()
@@ -34,10 +35,9 @@ public class WaitPlase : MonoBehaviour
     //     {
     //         if (child.gameObject.tag == "Piece")
     //         {
-    //             piece.SetActive(true);
-    //             //child.gameObject.SetActive(false);
+    //             pieceWait = child.gameObject;
     //         }
-    //         else piece.SetActive(false);
+    //         else pieceWait = null;
     //     }
     // }
 
