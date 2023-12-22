@@ -17,6 +17,16 @@ public class PanelManager : TemporaryMonoBehaviourSingleton<PanelManager>
     public GameObject panelTutorial;
     public GameObject panelLuckySpin;
     public GameObject panelDailyReward;
+    public GameObject panelHomeScene;
+
+    public void ShowPanelHomeScene()
+    {
+        panelHomeScene.SetActive(true);
+    }
+    public void HidePanelHomeScene()
+    {
+        panelHomeScene.SetActive(false);
+    }
 
     public void ShowPanelDailyReward()
     {
@@ -133,5 +143,16 @@ public class PanelManager : TemporaryMonoBehaviourSingleton<PanelManager>
         panelWin.SetActive(false);
         panelLose.SetActive(false);
         panelSetting.SetActive(false);
+        panelLevelMenu.SetActive(false);
+        panelStore.SetActive(false);
+        panelLanguage.SetActive(false);
+        panelADs.SetActive(false);
+        panelRatting.SetActive(false);
+        panelNotify.SetActive(false);
+        panelOutOfCoin.SetActive(false);
+        panelTutorial.SetActive(false);
+        panelLuckySpin.SetActive(false);
+        panelDailyReward.SetActive(false);
+        panelHomeScene.SetActive(false);
     }
 }

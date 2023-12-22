@@ -108,4 +108,30 @@ public class ButtonManager : MonoBehaviour
     {
         PanelManager.HidePanelDailyReward();
     }
+    public void ButtonOpenHomeScene()
+    {
+        PanelManager.HideAllPanel();
+        PanelManager.ShowPanelHomeScene();
+    }
+    public void ButtonCloseHomeScene()
+    {
+        ButtonRestart();
+        PanelManager.HidePanelHomeScene();
+    }
+    public void ButtonOpenLose()
+    {
+        PanelManager.ShowPanelLose();
+    }
+    public void ButtonCloseLose()
+    {
+        PanelManager.HidePanelLose();
+    }
+    public void ButtonOpenWin()
+    {
+        PanelManager.ShowPanelWin();
+    }
+    public void ButtonCloseWin()
+    {
+        PanelManager.HidePanelWin();
+    }
 }
