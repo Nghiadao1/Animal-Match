@@ -62,7 +62,7 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
     }
     public void Reverse()
     {
-        WaitLine.Reverse();
+        // WaitLine.Reverse();
     }
 
 }

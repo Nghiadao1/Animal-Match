@@ -45,6 +45,7 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
     //[SerializeField] private List<Position> _oldPosOfPiece;
     private int _waitingPieceCount;
     PieceItemManager PieceItemManager => PieceItemManager.Instance;
+    ItemManager ItemManager => ItemManager.Instance;
     public bool CanPutOn => !IsFull();
 
     void Start()
@@ -58,9 +59,9 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
     public void AddPiece(PieceItemHandler pieceItem)
     {
         if (IsFull()) return;
-        //_oldPosOfPiece.Add(pieceItem.Model.Position);
         var type = pieceItem.Type;
         var piecePair = GetPiecePair(type);
+        // ItemManager.AddInfoPiece(pieceItem);
         piecePair.Add(pieceItem);
         ArrangePiece();
         CheckMatches(piecePair);
@@ -94,6 +95,11 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
         }
         Invoke("ArrangePiece", 0.5f);
     }
+    public void Reverse(PiecePair piecePair)
+    {
+        piecePair.Clean();
+        Remove(piecePair);
+    }
     private PiecePair GetPiecePair(PieceType type)
     {
         PiecePair result = null;
@@ -108,7 +114,7 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
         }
         return result;
     }
-    private void Remove(PiecePair piecePair)
+    public void Remove(PiecePair piecePair)
     {
         _piecePairs.Remove(piecePair);
     }
@@ -137,24 +143,24 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
         _piecePairs.Clear();
         _waitingPieceCount = 0;
     }
-    public void Reverse()
-    {
-        // // reverse piece pairs back to piece board
-        // foreach (var piecePair in _piecePairs)
-        // {
-        //     foreach (var piece in piecePair.Pieces)
-        //     {
-        //         PieceItemManager.AddToPieceBoard(piece);
-        //         PieceItemManager.PieceItemHandlers.Add(piece);
-        //         // revert piece to old position random
-        //         piece.Model.Position = _oldPosOfPiece[Random.Range(0, _oldPosOfPiece.Count)];
-        //         // remove old position
+    // public void Reverse()
+    // {
+    // // reverse piece pairs back to piece board
+    // foreach (var piecePair in _piecePairs)
+    // {
+    //     foreach (var piece in piecePair.Pieces)
+    //     {
+    //         PieceItemManager.AddToPieceBoard(piece);
+    //         PieceItemManager.PieceItemHandlers.Add(piece);
+    //         // revert piece to old position random
+    //         piece.Model.Position = _oldPosOfPiece[Random.Range(0, _oldPosOfPiece.Count)];
+    //         // remove old position
 
-        //         _oldPosOfPiece.Remove(piece.Model.Position);
-        //     }
-        // }
-        // _piecePairs.Clear();
-        // _waitingPieceCount = 0;
-    }
+    //         _oldPosOfPiece.Remove(piece.Model.Position);
+    //     }
+    // }
+    // _piecePairs.Clear();
+    // _waitingPieceCount = 0;
+    //}
 
 }
