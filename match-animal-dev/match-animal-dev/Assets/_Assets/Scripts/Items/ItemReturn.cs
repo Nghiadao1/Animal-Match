@@ -17,4 +17,10 @@ public class ItemReturn : TemporaryMonoBehaviourSingleton<ItemReturn>
         piecePositionsDashboard.Add(piece.Model.Position);
 
     }
+    public void Clear(PieceItemHandler piece)
+    {
+        pieceCollect.Remove(piece.gameObject);
+        piecePositions.Remove(piece.transform.position);
+        piecePositionsDashboard.Remove(piece.Model.Position);
+    }
 }

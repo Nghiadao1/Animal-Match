@@ -16,21 +16,22 @@ public class ItemManager : TemporaryMonoBehaviourSingleton<ItemManager>
     {
         for (int i = 0; i < itemReturn.pieceCollect.Count; i++)
         {
+            var piece = itemReturn.pieceCollect[i].GetComponent<PieceItemHandler>();
             itemReturn.pieceCollect[i].transform.position = itemReturn.piecePositions[i];
-            itemReturn.pieceCollect[i].GetComponent<PieceItemHandler>().Model.Position = itemReturn.piecePositionsDashboard[i];
+            piece.Model.Position = itemReturn.piecePositionsDashboard[i];
             //return piece gameobject to piece layer
-            itemReturn.pieceCollect[i].transform.parent = PieceItemManager.Instance.pieceItemRoots[itemReturn.pieceCollect[i].GetComponent<PieceItemHandler>().layerPiece - 1];
+            itemReturn.pieceCollect[i].transform.parent = PieceItemManager.Instance.pieceItemRoots[piece.layerPiece - 1];
             //return piece to piece board
-            PieceItemManager.Instance.PieceBoard[itemReturn.pieceCollect[i].GetComponent<PieceItemHandler>().Model.Position.Row, itemReturn.pieceCollect[i].GetComponent<PieceItemHandler>().Model.Position.Column] = itemReturn.pieceCollect[i].GetComponent<PieceItemHandler>();
+            PieceItemManager.Instance.PieceBoard[piece.Model.Position.Row, piece.Model.Position.Column] = piece;
             // var piece = itemReturn.pieceCollect[i];
             // piece.SetActive(true);
+            itemReturn.pieceCollect.Remove(piece.gameObject);
+            itemReturn.piecePositions.Remove(piece.transform.position);
+            itemReturn.piecePositionsDashboard.Remove(piece.Model.Position);
+
         }
-        Clear();
+
+
     }
-    public void Clear()
-    {
-        itemReturn.pieceCollect.Clear();
-        itemReturn.piecePositions.Clear();
-        itemReturn.piecePositionsDashboard.Clear();
-    }
+
 }
