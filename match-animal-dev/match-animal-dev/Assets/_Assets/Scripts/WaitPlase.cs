@@ -70,8 +70,4 @@ public class WaitPlase : MonoBehaviour
     // {
     //     imagePiece.sprite = pieceItem.pieceIconImage.sprite;
     // }
-    public void RemovePiece()
-    {
-        this.pieceItem = null;
-    }
 }

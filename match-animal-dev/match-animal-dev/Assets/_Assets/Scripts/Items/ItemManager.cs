@@ -6,7 +6,7 @@ using UnityEngine;
 public class ItemManager : TemporaryMonoBehaviourSingleton<ItemManager>
 {
     private ItemReturn itemReturn => ItemReturn.Instance;
-
+    private ItemHint itemHint => ItemHint.Instance;
     public void AddInfoPiece(PieceItemHandler piece)
     {
         itemReturn.AddInfoPiece(piece);
@@ -32,6 +32,11 @@ public class ItemManager : TemporaryMonoBehaviourSingleton<ItemManager>
         }
 
 
+    }
+    public void HintItem()
+    {
+        Debug.Log("HintItem");
+        itemHint.HintPiece();
     }
 
 }

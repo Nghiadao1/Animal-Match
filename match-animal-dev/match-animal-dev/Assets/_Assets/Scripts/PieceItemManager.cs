@@ -23,7 +23,7 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
     public PieceItemHandler[,] PieceBoard { get; private set; }
 
     private GameModel GameModel => GameModel.Instance;
-
+    WaitLine WaitLine => WaitLine.Instance;
     private int Row => GameModel.Row;
     private int Column => GameModel.Column;
 
@@ -119,6 +119,39 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
     {
         PieceBoard[pieceItem.Position.Row, pieceItem.Position.Column] = pieceItem;
 
+    }
+    private List<PieceItemHandler> pieceSameType = new List<PieceItemHandler>();
+    public void FindPieceSameType()
+    {
+        //find 3 piece same type in piece Item Handlers and waitline.addpiece them
+        var pieceItem = PieceItemHandlers[Random.Range(0, PieceItemHandlers.Count)];
+        //add pieceItem to list
+        pieceSameType.Add(pieceItem);
+        var type = pieceItem.Type;
+        var count = 0;
+
+        foreach (var piece in PieceItemHandlers)
+            if (piece != null && piece.Type == type)
+            {
+                pieceSameType.Add(piece);
+                count++;
+                if (count == 2)
+                {
+                    foreach (var pieceSame in pieceSameType)
+                    {
+                        WaitLine.AddPiece(pieceSame);
+                        //PieceItemManager.Instance.RemoveFromPieceBoard(pieceSame);
+                    }
+                    pieceSameType.Clear();
+                    return;
+                }
+            }
+        if (count < 2)
+        {
+            Debug.Log("---------------done------------------");
+            pieceSameType.Clear();
+            FindPieceSameType();
+        }
     }
 
 }

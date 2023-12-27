@@ -11,6 +11,7 @@ public class PieceItemHandler : MonoBehaviour
     [SerializeField] public Image pieceIconImage;
     [SerializeField] private PieceModel model;
     [SerializeField] public int layerPiece;
+    public static bool check = true;
     public bool _canPutOn;
     private bool _hasCleaned = true;
     private GameModel GameModel => GameModel.Instance;
