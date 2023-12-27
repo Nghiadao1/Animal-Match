@@ -13,6 +13,7 @@ public class PieceItemHandler : MonoBehaviour
     [SerializeField] public int layerPiece;
     public static bool check = true;
     public bool _canPutOn;
+    public bool isInWaitLine;
     private bool _hasCleaned = true;
     private GameModel GameModel => GameModel.Instance;
     public PieceType Type => Model.Type;
@@ -45,7 +46,7 @@ public class PieceItemHandler : MonoBehaviour
 
     private void UpdateColor()
     {
-        if (!_canPutOn)
+        if (!_canPutOn && !isInWaitLine)
         {
             pieceIconImage.color = Color.grey;
             backgroundImage.color = Color.grey;
@@ -61,6 +62,7 @@ public class PieceItemHandler : MonoBehaviour
     {
         //layerController = layerController của scoreview nó đang nằm trong
         LayerController = GetComponentInParent<LayerController>();
+        isInWaitLine = false;
     }
     public void AddDirection()
     {

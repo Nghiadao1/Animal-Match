@@ -67,6 +67,7 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
         //_oldPosOfPiece.Add(pieceItem.Model.Position);
         var type = pieceItem.Type;
         var piecePair = GetPiecePair(type);
+        pieceItem.isInWaitLine = true;
         waitPieces.Add(pieceItem.gameObject);
         piecePair.Add(pieceItem);
         ArrangePiece();
