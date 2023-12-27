@@ -126,7 +126,7 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
         //find 3 piece same type in piece Item Handlers and waitline.addpiece them
         var pieceItem = PieceItemHandlers[Random.Range(0, PieceItemHandlers.Count)];
         //add pieceItem to list
-        pieceSameType.Add(pieceItem);
+        WaitLine.AddPiece(pieceItem);
         var type = pieceItem.Type;
         var count = 0;
 
@@ -135,13 +135,11 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
             {
                 pieceSameType.Add(piece);
                 count++;
-                if (count == 2)
+                Debug.Log("count " + pieceSameType);
+                if (pieceSameType.Count == 2)
                 {
                     foreach (var pieceSame in pieceSameType)
-                    {
                         WaitLine.AddPiece(pieceSame);
-                        //PieceItemManager.Instance.RemoveFromPieceBoard(pieceSame);
-                    }
                     pieceSameType.Clear();
                     return;
                 }
@@ -150,7 +148,6 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
         {
             Debug.Log("---------------done------------------");
             pieceSameType.Clear();
-            FindPieceSameType();
         }
     }
 

@@ -71,6 +71,7 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
         ArrangePiece();
         CheckMatches(piecePair);
         PieceItemManager.RemoveFromPieceBoard(pieceItem);
+        GameManager.Instance.WinGame();
     }
     private void ArrangePiece()
     {
