@@ -36,6 +36,7 @@ public class PiecePair
             {
                 Object.Destroy(piece.gameObject, DELAY_TIME_DESTROY_PIECE);
                 WaitLine.Instance.waitPieces.Remove(piece.gameObject);
+                PieceItemManager.Instance.pieceWaits.Remove(piece);
             });
         }
         _pieces.Clear();
@@ -70,6 +71,7 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
         piecePair.Add(pieceItem);
         ArrangePiece();
         CheckMatches(piecePair);
+        PieceItemManager.pieceWaits.Add(pieceItem);
         PieceItemManager.RemoveFromPieceBoard(pieceItem);
         GameManager.Instance.WinGame();
     }

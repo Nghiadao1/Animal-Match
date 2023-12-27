@@ -6,15 +6,6 @@ using DG.Tweening;
 public class ItemShuffle : TemporaryMonoBehaviourSingleton<ItemShuffle>
 {
     PieceItemManager PieceItemManager => PieceItemManager.Instance;
-    [SerializeField] private List<PieceItemHandler> pieceItemHandlerClone;
-    void Start()
-    {
-        Init();
-    }
-    private void Init()
-    {
-
-    }
     public void ShufflePiece()
     {
         //get rabdom 2 piece in pieceItemHandlers and swap position and data in dashboard

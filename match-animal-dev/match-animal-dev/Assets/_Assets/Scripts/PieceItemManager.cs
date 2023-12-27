@@ -6,6 +6,7 @@ using DG.Tweening;
 public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager>
 {
     [SerializeField] private List<PieceItemHandler> pieceItemHandlers;
+    public List<PieceItemHandler> pieceWaits = new List<PieceItemHandler>();
     public bool IsWin => IsPieceItemNull();
     // private void Start()
     // {
@@ -14,6 +15,7 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
 
     //[SerializeField] private Transform pieceItemRoot;
     public List<Transform> pieceItemRoots;
+
     public List<PieceItemHandler> PieceItemHandlers
     {
         get => pieceItemHandlers;
@@ -123,19 +125,43 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
     private List<PieceItemHandler> pieceSameType = new List<PieceItemHandler>();
     public void FindPieceSameType()
     {
-        //find 3 piece same type in piece Item Handlers and waitline.addpiece them
-        var pieceItem = PieceItemHandlers[Random.Range(0, PieceItemHandlers.Count)];
-        //add pieceItem to list
-        pieceItem._canPutOn = true;
-        WaitLine.AddPiece(pieceItem);
+        PieceItemHandler pieceItem = FindFirstPieceHint();
         var type = pieceItem.Type;
         var count = 0;
+        FintLastPieceHint(type, ref count);
+        CheckCount(count);
+    }
 
+    private void CheckCount(int count)
+    {
+        if (count < 2)
+        {
+            Debug.Log("---------------done------------------");
+            foreach (var pieceSame in pieceSameType)
+                WaitLine.AddPiece(pieceSame);
+            pieceSameType.Clear();
+        }
+    }
+
+    private PieceItemHandler FindFirstPieceHint()
+    {
+        var pieceItem = PieceItemHandlers[0];
+        if (pieceWaits.Count > 0) pieceItem = pieceWaits[Random.Range(0, pieceWaits.Count)];
+        else
+        {
+            pieceItem = PieceItemHandlers[Random.Range(0, PieceItemHandlers.Count)];
+            WaitLine.AddPiece(pieceItem);
+        }
+
+        return pieceItem;
+    }
+
+    private void FintLastPieceHint(PieceType type, ref int count)
+    {
         foreach (var piece in PieceItemHandlers)
             if (piece != null && piece.Type == type)
             {
                 pieceSameType.Add(piece);
-                piece._canPutOn = true;
                 count++;
                 Debug.Log("count " + pieceSameType);
                 if (pieceSameType.Count == 2)
@@ -146,12 +172,6 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
                     return;
                 }
             }
-        if (count < 2)
-        {
-            Debug.Log("---------------done------------------");
-            pieceSameType.Clear();
-        }
     }
-
 }
 
