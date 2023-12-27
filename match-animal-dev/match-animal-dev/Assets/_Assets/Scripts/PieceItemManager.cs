@@ -126,6 +126,7 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
         //find 3 piece same type in piece Item Handlers and waitline.addpiece them
         var pieceItem = PieceItemHandlers[Random.Range(0, PieceItemHandlers.Count)];
         //add pieceItem to list
+        pieceItem._canPutOn = true;
         WaitLine.AddPiece(pieceItem);
         var type = pieceItem.Type;
         var count = 0;
@@ -134,6 +135,7 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
             if (piece != null && piece.Type == type)
             {
                 pieceSameType.Add(piece);
+                piece._canPutOn = true;
                 count++;
                 Debug.Log("count " + pieceSameType);
                 if (pieceSameType.Count == 2)

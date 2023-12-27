@@ -112,7 +112,6 @@ public class PieceItemHandler : MonoBehaviour
         Debug.Log($"Click piece: {Type}");
         //PieceItemManager.Isblocked(this);
         GameManager.Pick(this);
-        GameManager.WinGame();
     }
     // public void Restart()
     // {

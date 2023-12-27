@@ -7,6 +7,7 @@ public class ItemManager : TemporaryMonoBehaviourSingleton<ItemManager>
 {
     private ItemReturn itemReturn => ItemReturn.Instance;
     private ItemHint itemHint => ItemHint.Instance;
+    private ItemShuffle itemShuffle => ItemShuffle.Instance;
     public void AddInfoPiece(PieceItemHandler piece)
     {
         itemReturn.AddInfoPiece(piece);
@@ -37,6 +38,11 @@ public class ItemManager : TemporaryMonoBehaviourSingleton<ItemManager>
     {
         Debug.Log("HintItem");
         itemHint.HintPiece();
+    }
+    public void ShuffleItem()
+    {
+        Debug.Log("ShuffleItem");
+        itemShuffle.ShufflePiece();
     }
 
 }
