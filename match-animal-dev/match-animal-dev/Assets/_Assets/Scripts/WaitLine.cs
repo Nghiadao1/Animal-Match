@@ -67,8 +67,7 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
         //_oldPosOfPiece.Add(pieceItem.Model.Position);
         var type = pieceItem.Type;
         var piecePair = GetPiecePair(type);
-        pieceItem.isInWaitLine = true;
-        waitPieces.Add(pieceItem.gameObject);
+        AddToWaitPieces(pieceItem);
         piecePair.Add(pieceItem);
         ArrangePiece();
         CheckMatches(piecePair);
@@ -76,7 +75,14 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
         PieceItemManager.RemoveFromPieceBoard(pieceItem);
         GameManager.Instance.WinGame();
     }
-    private void ArrangePiece()
+
+    private void AddToWaitPieces(PieceItemHandler pieceItem)
+    {
+        pieceItem.isInWaitLine = true;
+        waitPieces.Add(pieceItem.gameObject);
+    }
+
+    public void ArrangePiece()
     {
         _waitingPieceCount = 0;
         foreach (var piecePair in _piecePairs)
@@ -150,22 +156,8 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
     }
     public void Reverse()
     {
-        // // reverse piece pairs back to piece board
-        // foreach (var piecePair in _piecePairs)
-        // {
-        //     foreach (var piece in piecePair.Pieces)
-        //     {
-        //         PieceItemManager.AddToPieceBoard(piece);
-        //         PieceItemManager.PieceItemHandlers.Add(piece);
-        //         // revert piece to old position random
-        //         piece.Model.Position = _oldPosOfPiece[Random.Range(0, _oldPosOfPiece.Count)];
-        //         // remove old position
-
-        //         _oldPosOfPiece.Remove(piece.Model.Position);
-        //     }
-        // }
-        // _piecePairs.Clear();
-        // _waitingPieceCount = 0;
+        _piecePairs.Clear();
+        _waitingPieceCount = 0;
     }
 
 }

@@ -41,6 +41,7 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
     {
         if (WaitLine.CanPutOn && pieceItem._canPutOn)
         {
+            ItemManager.Instance.AddInfoPiece(pieceItem);
             WaitLine.AddPiece(pieceItem);
             Debug.Log("Can put on");
         }

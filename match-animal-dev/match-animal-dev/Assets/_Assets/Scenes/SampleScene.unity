@@ -41364,6 +41364,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 966dea75995e0944fa1f32f7b4915ebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonReverse: {fileID: 599691351}
+  buttonHint: {fileID: 1442411497}
+  buttonShuffle: {fileID: 803114938}
 --- !u!4 &770510674
 Transform:
   m_ObjectHideFlags: 0
@@ -84895,6 +84898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceItemHandlers: []
+  pieceWaits: []
   pieceItemRoots: []
 --- !u!1 &1592711483
 GameObject:
