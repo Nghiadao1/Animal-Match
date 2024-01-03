@@ -41349,7 +41349,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73d74ed4001b46245b894c0aca90be9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceCollect: []
   piecePositions: []
   piecePositionsDashboard: []
 --- !u!114 &770510673
@@ -103539,7 +103538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55c975e3779541b7bc3eea1b259a637a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: 2
+  Level: 1
   onPieceMatches:
     m_PersistentCalls:
       m_Calls: []
