@@ -6,6 +6,7 @@ public class ButtonManager : MonoBehaviour
 {
     private PanelManager PanelManager => PanelManager.Instance;
     private PieceItemManager PieceItemManager => PieceItemManager.Instance;
+    private ItemManager ItemManager => ItemManager.Instance;
     public void ButtonRestart()
     {
 
@@ -18,6 +19,14 @@ public class ButtonManager : MonoBehaviour
     {
         // GameManager.Instance.Reverse();
         PanelManager.HidePanelLose();
+        ItemManager.ReturnItem();
+        StartCoroutine(ContinueShuffle());
+    }
+    //coroutine
+    public IEnumerator ContinueShuffle()
+    {
+        yield return new WaitForSeconds(1f);
+        ItemManager.ShuffleItem();
     }
     public void ButtonOpenSetting()
     {
