@@ -20,6 +20,11 @@ public class ItemManager : TemporaryMonoBehaviourSingleton<ItemManager>
     public void ReturnItem()
     {
         Debug.Log("ReturnItem");
+        StartCoroutine(ReturnCoroutine());
+    }
+    public IEnumerator ReturnCoroutine()
+    {
+        yield return new WaitForSeconds(0.2f);
         itemReturn.UndoPiece();
     }
     public void HintItem()
