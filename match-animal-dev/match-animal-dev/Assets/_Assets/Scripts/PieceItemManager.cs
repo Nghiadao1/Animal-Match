@@ -193,7 +193,6 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
         layerControllers.Clear();
         // Clear PieceItemRoots
         pieceItemRoots.Clear();
-
     }
 }
 

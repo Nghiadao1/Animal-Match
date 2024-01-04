@@ -106,4 +106,9 @@ public class GameState : PermanentMonoBehaviourSingleton<GameState>
         }
 
     }
+    public void Restart()
+    {
+        fieldList.Clear();
+        models.Clear();
+    }
 }

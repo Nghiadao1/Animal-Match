@@ -79,7 +79,9 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
     {
         Level++;
         ClearOldData();
+        GameState.Instance.Restart();
         LoadData();
+        PieceItemManager.RestartLayer();
     }
 
 }
