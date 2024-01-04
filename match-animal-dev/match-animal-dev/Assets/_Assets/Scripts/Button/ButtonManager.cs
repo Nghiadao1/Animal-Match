@@ -12,7 +12,6 @@ public class ButtonManager : MonoBehaviour
     public void ButtonNextLevel()
     {
         GameManager.NextLevel();
-        //PieceItemManager.InitPieceLayer();
         PanelManager.HideAllPanel();
     }
     public void ButtonRestart()
