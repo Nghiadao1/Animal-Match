@@ -5,9 +5,7 @@ using UnityEngine.UI;
 
 public class EnableGird : MonoBehaviour
 {
-    //[SerializeField] private  girdLayoutGroup;
     [SerializeField] private GridLayoutGroup girdLayoutGroup;
-    // Start is called before the first frame update
     void Awake()
     {
         Init();

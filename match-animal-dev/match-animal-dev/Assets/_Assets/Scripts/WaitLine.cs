@@ -31,7 +31,6 @@ public class PiecePair
     {
         foreach (var piece in _pieces)
         {
-            //remove piece from list pice item Handler
             piece.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBounce).OnComplete(() =>
             {
                 Object.Destroy(piece.gameObject, DELAY_TIME_DESTROY_PIECE);

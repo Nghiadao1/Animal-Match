@@ -10,27 +10,17 @@ public class LayerController : MonoBehaviour
     [SerializeField] private float StepRow;
     [SerializeField] private float StepCol;
     private PieceItemManager PieceItemManager => PieceItemManager.Instance;
-    void Start()
-    {
-        Init();
-    }
-    private void Init()
-    {
-        //update thisLayer = index of this content in PieceItemRoots
-    }
     public void IntanceGroup(int stepNumber, int nextStep, Transform pos)
     {
         SetUpLayer(stepNumber, nextStep);
         LayerController layer = CreateLayer(pos);
         SetUpInfoLayer(layer);
-
     }
 
     private void SetUpInfoLayer(LayerController layer)
     {
         var content = layer.transform.Find("Viewport/Content");
         PieceItemManager.pieceItemRoots.Add(content);
-        //get index of this content in PieceItemRoots
         thisLayer = PieceItemManager.pieceItemRoots.IndexOf(content) + 1;
         layer.transform.localScale = new Vector3(1, 1, 1);
     }

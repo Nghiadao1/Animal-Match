@@ -66,10 +66,6 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
         PieceItemManager.Restart();
         WaitLine.Restart();
     }
-    public void Reverse()
-    {
-        // WaitLine.Reverse();
-    }
     private void ClearOldData()
     {
         PieceItemManager.ClearOldData();

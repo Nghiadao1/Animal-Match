@@ -25,12 +25,10 @@ public class ButtonManager : MonoBehaviour
     }
     public void ButtonContinue()
     {
-        // GameManager.Instance.Reverse();
         PanelManager.HidePanelLose();
         ItemManager.ReturnItem();
         StartCoroutine(ContinueShuffle());
     }
-    //coroutine
     public IEnumerator ContinueShuffle()
     {
         yield return new WaitForSeconds(1f);

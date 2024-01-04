@@ -166,8 +166,7 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
                 Debug.Log("count " + pieceSameType);
                 if (pieceSameType.Count == 2)
                 {
-                    foreach (var pieceSame in pieceSameType)
-                        WaitLine.AddPiece(pieceSame);
+                    foreach (var pieceSame in pieceSameType) WaitLine.AddPiece(pieceSame);
                     pieceSameType.Clear();
                     return;
                 }
@@ -175,23 +174,10 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
     }
     public void ClearOldData()
     {
-        // Clear PieceItemHandlers
-        foreach (var piece in PieceItemHandlers)
-        {
-            if (piece != null)
-            {
-                Destroy(piece.gameObject);
-            }
-        }
+        foreach (var piece in PieceItemHandlers) Destroy(piece.gameObject);
+        foreach (var layer in layerControllers) Destroy(layer.gameObject);
         PieceItemHandlers.Clear();
-        // Clear WaitLine
-        // Clear LayerController
-        foreach (var layer in layerControllers)
-        {
-            Destroy(layer.gameObject);
-        }
         layerControllers.Clear();
-        // Clear PieceItemRoots
         pieceItemRoots.Clear();
     }
 }

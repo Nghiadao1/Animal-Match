@@ -8,7 +8,6 @@ public class ItemShuffle : TemporaryMonoBehaviourSingleton<ItemShuffle>
     PieceItemManager PieceItemManager => PieceItemManager.Instance;
     public void ShufflePiece()
     {
-        //get rabdom 2 piece in pieceItemHandlers and swap position and data in dashboard
         for (int i = 0; i < PieceItemManager.PieceItemHandlers.Count; i++)
         {
             var random1 = Random.Range(0, PieceItemManager.PieceItemHandlers.Count);

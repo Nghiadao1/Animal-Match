@@ -84897,6 +84897,7 @@ MonoBehaviour:
   pieceItemHandlers: []
   pieceWaits: []
   pieceItemRoots: []
+  layerControllers: []
 --- !u!1 &1592711483
 GameObject:
   m_ObjectHideFlags: 0

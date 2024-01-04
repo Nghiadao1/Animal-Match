@@ -39,7 +39,6 @@ public class ItemManager : TemporaryMonoBehaviourSingleton<ItemManager>
         Debug.Log("ShuffleItem");
         itemShuffle.ShufflePiece();
     }
-    //coroutine hint piece
     public IEnumerator HintPieceCoroutine()
     {
         yield return new WaitForSeconds(1f);

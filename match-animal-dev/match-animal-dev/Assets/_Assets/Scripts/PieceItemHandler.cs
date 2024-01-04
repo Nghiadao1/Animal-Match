@@ -35,8 +35,6 @@ public class PieceItemHandler : MonoBehaviour
     {
         Init();
         AddDirection();
-        //ieceItemManager.Isblocked(this);
-
     }
     void Update()
     {
@@ -60,7 +58,6 @@ public class PieceItemHandler : MonoBehaviour
 
     private void Init()
     {
-        //layerController = layerController của scoreview nó đang nằm trong
         LayerController = GetComponentInParent<LayerController>();
         isInWaitLine = false;
     }
@@ -72,11 +69,7 @@ public class PieceItemHandler : MonoBehaviour
         direction.Add(Vector2Int.left);
         direction.Add(-Vector2Int.one);
         for (int i = 0; i < direction.Count; i++)
-        {
-            // compare this step and next step
-            //Bug can not instance true
             direction[i] = direction[i] * (LayerController.stepNextLayer);
-        }
     }
 
     public void SetData(PieceModel model)
@@ -97,7 +90,6 @@ public class PieceItemHandler : MonoBehaviour
         {
             PieceItemManager.RemoveFromPieceBoard(this);
             root.SetActive(false);
-            // Destroy(gameObject, 0.35f);
         }
         else root.SetActive(true);
         backgroundImage.gameObject.SetActive(true);
@@ -112,15 +104,7 @@ public class PieceItemHandler : MonoBehaviour
     public void OnPieceIconClick()
     {
         Debug.Log($"Click piece: {Type}");
-        //PieceItemManager.Isblocked(this);
         GameManager.Pick(this);
     }
-    // public void Restart()
-    // {
-    //     transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBounce).OnComplete(() =>
-    //         {
-    //             PieceItemManager.RemoveFromPieceBoard(this);
-    //             Destroy(gameObject, 0f);
-    //         });
-    // }
+
 }
