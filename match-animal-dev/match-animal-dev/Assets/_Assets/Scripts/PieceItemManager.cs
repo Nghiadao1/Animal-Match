@@ -70,13 +70,19 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
             var newRow = row + dir.x;
             var newColumn = column + dir.y;
             var newLayer = pieceItem.layerPiece + 1;
-            foreach (var piece in PieceItemHandlers)
-                if (piece != null && piece.Position.Row == newRow && piece.Position.Column == newColumn && piece.layerPiece == newLayer)
+            while (newLayer < pieceItemHandlers.Count)
+            {
+                foreach (var piece in PieceItemHandlers)
                 {
-                    //Debug.Log("Piece: " + piece.Position.Row + " " + piece.Position.Column + " " + piece.layerPiece + " " + pieceItem.layerPiece + " " + pieceItem.Position.Row + " " + pieceItem.Position.Column);
-                    pieceItem._canPutOn = false;
-                    break;
+                    if (piece != null && piece.Position.Row == newRow && piece.Position.Column == newColumn && piece.layerPiece == newLayer)
+                    {
+                        //Debug.Log("Piece: " + piece.Position.Row + " " + piece.Position.Column + " " + piece.layerPiece + " " + pieceItem.layerPiece + " " + pieceItem.Position.Row + " " + pieceItem.Position.Column);
+                        pieceItem._canPutOn = false;
+                        break;
+                    }
                 }
+                newLayer++;
+            }
         }
     }
     public bool IsPieceItemNull()
@@ -138,7 +144,9 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
         {
             Debug.Log("---------------done------------------");
             foreach (var pieceSame in pieceSameType)
+            {
                 WaitLine.AddPiece(pieceSame);
+            }
             pieceSameType.Clear();
         }
     }
@@ -179,6 +187,17 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
         PieceItemHandlers.Clear();
         layerControllers.Clear();
         pieceItemRoots.Clear();
+    }
+    public void CheckIsBlocked()
+    {
+        foreach (var piece in PieceItemHandlers)
+        {
+            if (piece != null)
+            {
+                Isblocked(piece);
+                PieceItemHandler.UpdateColor(piece);
+            }
+        }
     }
 }
 

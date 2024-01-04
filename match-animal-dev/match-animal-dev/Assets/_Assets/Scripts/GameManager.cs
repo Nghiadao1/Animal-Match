@@ -48,6 +48,7 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
         {
             ItemManager.Instance.AddInfoPiece(pieceItem);
             WaitLine.AddPiece(pieceItem);
+            OnCheckIsBlocked();
             Debug.Log("Can put on");
         }
         else if (!WaitLine.CanPutOn) LoseGame();
@@ -79,5 +80,8 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
         LoadData();
         PieceItemManager.RestartLayer();
     }
-
+    public void OnCheckIsBlocked()
+    {
+        PieceItemManager.CheckIsBlocked();
+    }
 }

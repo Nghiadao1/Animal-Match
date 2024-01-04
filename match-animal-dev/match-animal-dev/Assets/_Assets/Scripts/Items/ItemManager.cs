@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ItemManager : TemporaryMonoBehaviourSingleton<ItemManager>
 {
+    private GameManager GameManager => GameManager.Instance;
     private ItemReturn itemReturn => ItemReturn.Instance;
     private ItemHint itemHint => ItemHint.Instance;
     private ItemShuffle itemShuffle => ItemShuffle.Instance;
@@ -26,6 +27,7 @@ public class ItemManager : TemporaryMonoBehaviourSingleton<ItemManager>
     {
         yield return new WaitForSeconds(0.2f);
         itemReturn.UndoPiece();
+        GameManager.OnCheckIsBlocked();
     }
     public void HintItem()
     {

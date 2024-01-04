@@ -35,24 +35,26 @@ public class PieceItemHandler : MonoBehaviour
     {
         Init();
         AddDirection();
+        PieceItemManager.Isblocked(this);
+        UpdateColor(this);
     }
     void Update()
     {
-        PieceItemManager.Isblocked(this);
-        UpdateColor();
+        //PieceItemManager.Isblocked(this);
+        //UpdateColor(this);
     }
 
-    private void UpdateColor()
+    public static void UpdateColor(PieceItemHandler piece)
     {
-        if (!_canPutOn && !isInWaitLine)
+        if (!piece._canPutOn && !piece.isInWaitLine)
         {
-            pieceIconImage.color = Color.grey;
-            backgroundImage.color = Color.grey;
+            piece.pieceIconImage.color = Color.grey;
+            piece.backgroundImage.color = Color.grey;
         }
         else
         {
-            pieceIconImage.color = Color.white;
-            backgroundImage.color = Color.white;
+            piece.pieceIconImage.color = Color.white;
+            piece.backgroundImage.color = Color.white;
         }
     }
 

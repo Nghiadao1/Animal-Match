@@ -31,7 +31,7 @@ public class PiecePair
     {
         foreach (var piece in _pieces)
         {
-            piece.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBounce).OnComplete(() =>
+            piece.transform.DOScale(Vector3.zero, 1f).SetEase(Ease.InBounce).OnComplete(() =>
             {
                 Object.Destroy(piece.gameObject, DELAY_TIME_DESTROY_PIECE);
                 WaitLine.Instance.waitPieces.Remove(piece.gameObject);
@@ -51,7 +51,7 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
     private int _waitingPieceCount;
     PieceItemManager PieceItemManager => PieceItemManager.Instance;
     public bool CanPutOn => !IsFull();
-
+    private GameManager GameManager => GameManager.Instance;
     void Start()
     {
         Init();
@@ -68,11 +68,12 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
         var piecePair = GetPiecePair(type);
         AddToWaitPieces(pieceItem);
         piecePair.Add(pieceItem);
+        GameManager.OnCheckIsBlocked();
         ArrangePiece();
         CheckMatches(piecePair);
         PieceItemManager.pieceWaits.Add(pieceItem);
         PieceItemManager.RemoveFromPieceBoard(pieceItem);
-        GameManager.Instance.WinGame();
+        GameManager.WinGame();
     }
 
     private void AddToWaitPieces(PieceItemHandler pieceItem)
@@ -158,5 +159,6 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
         _piecePairs.Clear();
         _waitingPieceCount = 0;
     }
+
 
 }
