@@ -21,20 +21,25 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
         get => onPieceMatches;
         set => onPieceMatches = value;
     }
-
-
     private void Start()
     {
-        Level = 2;
         Init();
     }
     void Update()
     {
+        DatabaseManager.SaveData(DatabaseManager.DatabaseKey.Level, Level);
     }
     private void Init()
     {
-        PieceItemManager.InitPieceLayer();
+        Level = DatabaseManager.LoadData<int>(DatabaseManager.DatabaseKey.Level, "1");
+        LoadData();
         OnPieceMatches.AddListener(() => { Debug.LogError(" OnPieceMatches!"); });
+    }
+
+    private void LoadData()
+    {
+        GameState.Instance.LoadData();
+        PieceItemManager.InitPieceLayer();
     }
 
     public void Pick(PieceItemHandler pieceItem)
@@ -64,6 +69,17 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
     public void Reverse()
     {
         // WaitLine.Reverse();
+    }
+    private void ClearOldData()
+    {
+        PieceItemManager.ClearOldData();
+        WaitLine.Restart();
+    }
+    public void NextLevel()
+    {
+        Level++;
+        ClearOldData();
+        LoadData();
     }
 
 }

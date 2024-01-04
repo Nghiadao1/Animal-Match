@@ -11,26 +11,25 @@ public class GameState : PermanentMonoBehaviourSingleton<GameState>
     public LayerController layerBase;
     [SerializeField] private List<string> fieldList = new List<string>();
     [SerializeField] private List<int> models = new List<int>();
+
     // private PieceItemManager PieceItemManager => PieceItemManager.Instance;
     public GameManager GameManager => GameManager.Instance;
-    [SerializeField] private int level => GameManager.Level;
-    void Start()
-    {
-        Init();
-    }
-    private void Init()
+    public void LoadData()
     {
         UpdateLevelCSV();
         LoadLayer();
         LoadModel();
         LoadLevel();
     }
+    void Update()
+    {
 
+    }
     private void UpdateLevelCSV()
     {
-        csvLevel = Resources.Load<TextAsset>("CSVs/Levels/Level" + level);
-        csvLayer = Resources.Load<TextAsset>("CSVs/Layers/Layer" + level);
-        csvModel = Resources.Load<TextAsset>("CSVs/Model Piece/Model" + level);
+        csvLevel = Resources.Load<TextAsset>("CSVs/Levels/Level" + GameManager.Level);
+        csvLayer = Resources.Load<TextAsset>("CSVs/Layers/Layer" + GameManager.Level);
+        csvModel = Resources.Load<TextAsset>("CSVs/Model Piece/Model" + GameManager.Level);
     }
     public void LoadLayer()
     {
@@ -44,7 +43,7 @@ public class GameState : PermanentMonoBehaviourSingleton<GameState>
                 if (i + 1 < line.Count) stepNext = int.Parse(line[i + 1]);
                 else stepNext = 0;
                 Debug.Log("stepNext " + stepNext);
-                layerBase.IntanceGroup(layer, stepNext, layerBase.transform);
+                layerBase.IntanceGroup(layer, stepNext, layerBase.transform);//note
             }
     }
     public void LoadLevel()

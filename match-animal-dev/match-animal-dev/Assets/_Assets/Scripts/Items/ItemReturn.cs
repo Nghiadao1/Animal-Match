@@ -9,8 +9,8 @@ public class ItemReturn : TemporaryMonoBehaviourSingleton<ItemReturn>
 {
     private PieceItemManager pieceItemManager => PieceItemManager.Instance;
     private WaitLine waitline => WaitLine.Instance;
-    public List<Vector3> piecePositions = new List<Vector3>();
-    public List<Position> piecePositionsDashboard = new List<Position>();
+    private List<Vector3> piecePositions = new List<Vector3>();
+    private List<Position> piecePositionsDashboard = new List<Position>();
     private Stack<Action> pieceMovementHistory = new Stack<Action>();
     private Dictionary<PieceItemHandler, int> originalLayerPieces = new Dictionary<PieceItemHandler, int>();
     private Dictionary<PieceItemHandler, int> pieceIndices = new Dictionary<PieceItemHandler, int>();

@@ -15,7 +15,7 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
 
     //[SerializeField] private Transform pieceItemRoot;
     public List<Transform> pieceItemRoots;
-
+    public List<LayerController> layerControllers = new List<LayerController>();
     public List<PieceItemHandler> PieceItemHandlers
     {
         get => pieceItemHandlers;
@@ -172,6 +172,28 @@ public class PieceItemManager : TemporaryMonoBehaviourSingleton<PieceItemManager
                     return;
                 }
             }
+    }
+    public void ClearOldData()
+    {
+        // Clear PieceItemHandlers
+        foreach (var piece in PieceItemHandlers)
+        {
+            if (piece != null)
+            {
+                Destroy(piece.gameObject);
+            }
+        }
+        PieceItemHandlers.Clear();
+        // Clear WaitLine
+        // Clear LayerController
+        foreach (var layer in layerControllers)
+        {
+            Destroy(layer.gameObject);
+        }
+        layerControllers.Clear();
+        // Clear PieceItemRoots
+        pieceItemRoots.Clear();
+
     }
 }
 

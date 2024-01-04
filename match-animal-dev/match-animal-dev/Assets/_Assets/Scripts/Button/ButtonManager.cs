@@ -1,16 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
     private PanelManager PanelManager => PanelManager.Instance;
     private PieceItemManager PieceItemManager => PieceItemManager.Instance;
     private ItemManager ItemManager => ItemManager.Instance;
+    private GameManager GameManager => GameManager.Instance;
+    public void ButtonNextLevel()
+    {
+        GameManager.NextLevel();
+        //PieceItemManager.InitPieceLayer();
+        PanelManager.HideAllPanel();
+    }
     public void ButtonRestart()
     {
 
-        GameManager.Instance.Restart();
+        GameManager.Restart();
         PieceItemManager.InitPieceLayer();
         PieceItemManager.RestartLayer();
         PanelManager.HideAllPanel();
