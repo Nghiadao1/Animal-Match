@@ -16,11 +16,11 @@ public class ButtonManager : MonoBehaviour
     }
     public void ButtonRestart()
     {
-
+        PanelManager.HidePanelSetting();
         GameManager.Restart();
         PieceItemManager.InitPieceLayer();
         PieceItemManager.RestartLayer();
-        PanelManager.HideAllPanel();
+        ItemManager.ShuffleItem();
     }
     public void ButtonContinue()
     {
