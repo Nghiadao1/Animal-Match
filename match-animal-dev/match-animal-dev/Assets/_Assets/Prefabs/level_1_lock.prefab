@@ -513,9 +513,10 @@ GameObject:
   - component: {fileID: 4149988949932415730}
   - component: {fileID: 4149988949932415732}
   - component: {fileID: -950166088748830166}
+  - component: {fileID: 8019553060305742720}
   m_Layer: 0
   m_Name: level_1_lock
-  m_TagString: Untagged
+  m_TagString: Levels
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -733,3 +734,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8019553060305742720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4149988949932415734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c39214ed3fcbed4b87d79b48e52fb67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textLevel: {fileID: 2885129300097972256}
+  isLock: 0
+  lockLevel: {fileID: 4149988948927722757}
+  _level: 0

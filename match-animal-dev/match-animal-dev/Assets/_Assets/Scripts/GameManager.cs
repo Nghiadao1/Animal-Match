@@ -16,6 +16,7 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
     public GameModel GameModel => GameModel.Instance;
     private PieceItemManager PieceItemManager => PieceItemManager.Instance;
     private PanelManager PanelManager => PanelManager.Instance;
+    private GameState GameState => GameState.Instance;
     public UnityEvent OnPieceMatches
     {
         get => onPieceMatches;
@@ -38,7 +39,7 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
 
     private void LoadData()
     {
-        GameState.Instance.LoadData();
+        GameState.LoadData();
         PieceItemManager.InitPieceLayer();
     }
 
@@ -75,13 +76,27 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
     public void NextLevel()
     {
         Level++;
+        UnlockLevel(Level);
         ClearOldData();
-        GameState.Instance.Restart();
+        GameState.Restart();
         LoadData();
         PieceItemManager.RestartLayer();
     }
     public void OnCheckIsBlocked()
     {
         PieceItemManager.CheckIsBlocked();
+    }
+    public void UnlockLevel(int level)
+    {
+        //check _level islock = false in Levels if level = _level then islock = false
+        foreach (GameObject levelObject in Levels.Instance.levels)
+        {
+            ButtonLevels buttonLevels = levelObject.GetComponent<ButtonLevels>();
+            if (buttonLevels._level == level)
+            {
+                buttonLevels.isLock = false;
+                break;
+            }
+        }
     }
 }
