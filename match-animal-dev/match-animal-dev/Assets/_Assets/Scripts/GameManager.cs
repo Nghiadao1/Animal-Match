@@ -10,6 +10,7 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
 {
 
     public int Level;
+    private int _LevelUnlockMax;
     [SerializeField] private UnityEvent onPieceMatches;
     [SerializeField] private Transform pieceItemPick;
     private WaitLine WaitLine => WaitLine.Instance;
@@ -33,13 +34,13 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
     private void Init()
     {
         Level = DatabaseManager.LoadData<int>(DatabaseManager.DatabaseKey.Level, "1");
-        LoadData();
+        LoadData(Level);
         OnPieceMatches.AddListener(() => { Debug.LogError(" OnPieceMatches!"); });
     }
 
-    private void LoadData()
+    private void LoadData(int level)
     {
-        GameState.LoadData();
+        GameState.LoadData(level);
         PieceItemManager.InitPieceLayer();
     }
 
@@ -79,7 +80,14 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
         UnlockLevel(Level);
         ClearOldData();
         GameState.Restart();
-        LoadData();
+        LoadData(Level);
+        PieceItemManager.RestartLayer();
+    }
+    public void LoadLevel(int level)
+    {
+        ClearOldData();
+        GameState.Restart();
+        LoadData(level);
         PieceItemManager.RestartLayer();
     }
     public void OnCheckIsBlocked()

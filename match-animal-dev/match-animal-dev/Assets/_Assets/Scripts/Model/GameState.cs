@@ -14,9 +14,9 @@ public class GameState : PermanentMonoBehaviourSingleton<GameState>
 
     // private PieceItemManager PieceItemManager => PieceItemManager.Instance;
     public GameManager GameManager => GameManager.Instance;
-    public void LoadData()
+    public void LoadData(int level)
     {
-        UpdateLevelCSV();
+        UpdateLevelCSV(level);
         LoadLayer();
         LoadModel();
         LoadLevel();
@@ -25,11 +25,11 @@ public class GameState : PermanentMonoBehaviourSingleton<GameState>
     {
 
     }
-    private void UpdateLevelCSV()
+    private void UpdateLevelCSV(int level)
     {
-        csvLevel = Resources.Load<TextAsset>("CSVs/Levels/Level" + GameManager.Level);
-        csvLayer = Resources.Load<TextAsset>("CSVs/Layers/Layer" + GameManager.Level);
-        csvModel = Resources.Load<TextAsset>("CSVs/Model Piece/Model" + GameManager.Level);
+        csvLevel = Resources.Load<TextAsset>("CSVs/Levels/Level" + level);
+        csvLayer = Resources.Load<TextAsset>("CSVs/Layers/Layer" + level);
+        csvModel = Resources.Load<TextAsset>("CSVs/Model Piece/Model" + level);
     }
     public void LoadLayer()
     {

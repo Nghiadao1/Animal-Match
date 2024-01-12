@@ -11,6 +11,7 @@ public class ButtonLevels : MonoBehaviour
     // Start is called before the first frame update
     public int _level;
     private Levels Levels => Levels.Instance;
+
     void Start()
     {
         Init();
@@ -19,7 +20,6 @@ public class ButtonLevels : MonoBehaviour
     {
         SetTextLevel();
     }
-
     private void SetTextLevel()
     {
         _level = Levels.levels.IndexOf(gameObject) + 1;
@@ -27,6 +27,7 @@ public class ButtonLevels : MonoBehaviour
     }
     void Update()
     {
+        SetTextLevel();
         SetLock();
         CheckLock();
     }
@@ -44,5 +45,13 @@ public class ButtonLevels : MonoBehaviour
     private bool IsLock()
     {
         return isLock;
+    }
+    public void OnClick()
+    {
+        if (!IsLock())
+        {
+            GameManager.Instance.LoadLevel(_level);
+            PanelManager.Instance.HideAllPanel();
+        }
     }
 }
