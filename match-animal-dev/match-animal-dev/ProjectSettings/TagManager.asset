@@ -9,6 +9,7 @@ TagManager:
   - Piece3
   - Piece
   - LayerBase
+  - Levels
   layers:
   - Default
   - TransparentFX

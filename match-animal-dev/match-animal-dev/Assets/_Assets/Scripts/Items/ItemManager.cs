@@ -10,6 +10,7 @@ public class ItemManager : TemporaryMonoBehaviourSingleton<ItemManager>
     private ItemReturn itemReturn => ItemReturn.Instance;
     private ItemHint itemHint => ItemHint.Instance;
     private ItemShuffle itemShuffle => ItemShuffle.Instance;
+    private ItemSpin itemSpin => ItemSpin.Instance;
     public GameObject buttonReverse;
     public GameObject buttonHint;
     public GameObject buttonShuffle;
@@ -45,5 +46,10 @@ public class ItemManager : TemporaryMonoBehaviourSingleton<ItemManager>
     {
         yield return new WaitForSeconds(1f);
         buttonHint.GetComponent<Button>().interactable = true;
+    }
+    public void SpinItem()
+    {
+        Debug.Log("SpinItem");
+        itemSpin.Spin();
     }
 }
