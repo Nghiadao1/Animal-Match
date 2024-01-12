@@ -18,24 +18,21 @@ public class ButtonLevels : MonoBehaviour
     public void Init()
     {
         SetTextLevel();
-        SetLock();
     }
 
     private void SetTextLevel()
     {
-        //_level by index this game object in Levels
         _level = Levels.levels.IndexOf(gameObject) + 1;
         textLevel.text = _level.ToString();
     }
-
-    // Update is called once per frame
     void Update()
     {
+        SetLock();
         CheckLock();
     }
     private void SetLock()
     {
-        if (_level == 1) isLock = false;
+        if (_level <= GameManager.Instance.Level) isLock = false;
         else isLock = true;
     }
     private void CheckLock()
