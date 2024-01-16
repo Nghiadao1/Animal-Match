@@ -7,15 +7,16 @@ using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine.UI;
 public class ItemSpin : TemporaryMonoBehaviourSingleton<ItemSpin>
 {
+    private ItemText itemText => ItemText.Instance;
     public GameObject wheelContent;
     public Text goldText;
     public Text hintText;
     public Text undoText;
     public Text shuffleText;
-    [SerializeField] private int gold;
-    [SerializeField] private int hint;
-    [SerializeField] private int undo;
-    [SerializeField] private int shuffle;
+    public int gold;
+    public int hint;
+    public int undo;
+    public int shuffle;
     void Start()
     {
         Init();
@@ -25,6 +26,7 @@ public class ItemSpin : TemporaryMonoBehaviourSingleton<ItemSpin>
     {
         LoadDataItem();
         LoadText();
+        itemText.LoadText();
     }
 
     private void LoadDataItem()
@@ -48,10 +50,16 @@ public class ItemSpin : TemporaryMonoBehaviourSingleton<ItemSpin>
         wheelContent.transform.DOLocalRotate(new Vector3(0, 0, randomZ), 2f, RotateMode.FastBeyond360).SetEase(Ease.OutCubic).OnComplete(() =>
         {
             RewardItemSpin(randomZ);
-            SaveDataItem();
-            LoadDataItem();
-            LoadText();
+            SetDataValues();
         });
+    }
+
+    public void SetDataValues()
+    {
+        SaveDataItem();
+        LoadDataItem();
+        LoadText();
+        itemText.LoadText();
     }
 
     private void LoadText()

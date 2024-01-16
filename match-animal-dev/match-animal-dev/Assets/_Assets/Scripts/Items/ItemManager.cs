@@ -21,6 +21,7 @@ public class ItemManager : TemporaryMonoBehaviourSingleton<ItemManager>
 
     public void ReturnItem()
     {
+        if (ItemManagers(itemSpin.undo)) return;
         Debug.Log("ReturnItem");
         StartCoroutine(ReturnCoroutine());
     }
@@ -29,9 +30,12 @@ public class ItemManager : TemporaryMonoBehaviourSingleton<ItemManager>
         yield return new WaitForSeconds(0.2f);
         itemReturn.UndoPiece();
         GameManager.OnCheckIsBlocked();
+        itemSpin.undo--;
+        itemSpin.SetDataValues();
     }
     public void HintItem()
     {
+        if (ItemManagers(itemSpin.hint)) return;
         Debug.Log("HintItem");
         itemHint.HintPiece();
         buttonHint.GetComponent<Button>().interactable = false;
@@ -39,17 +43,27 @@ public class ItemManager : TemporaryMonoBehaviourSingleton<ItemManager>
     }
     public void ShuffleItem()
     {
+        if (ItemManagers(itemSpin.shuffle)) return;
         Debug.Log("ShuffleItem");
         itemShuffle.ShufflePiece();
+        itemSpin.shuffle--;
+        itemSpin.SetDataValues();
     }
     public IEnumerator HintPieceCoroutine()
     {
         yield return new WaitForSeconds(1f);
         buttonHint.GetComponent<Button>().interactable = true;
+        itemSpin.hint--;
+        itemSpin.SetDataValues();
     }
     public void SpinItem()
     {
         Debug.Log("SpinItem");
         itemSpin.Spin();
     }
+    private bool ItemManagers(int value)
+    {
+        return value <= 0;
+    }
+
 }
