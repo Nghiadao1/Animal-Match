@@ -6,7 +6,11 @@ public class DatabaseManager : MonoBehaviour
     // Enum to define the keys for PlayerPrefs
     public enum DatabaseKey
     {
-        Level
+        Level,
+        Gold,
+        Hint,
+        Undo,
+        Shuffle
     }
 
     // Generic method to save data to PlayerPrefs
