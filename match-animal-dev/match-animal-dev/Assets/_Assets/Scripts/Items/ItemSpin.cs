@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using DG.Tweening;
-using Microsoft.Unity.VisualStudio.Editor;
+//using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine.UI;
 public class ItemSpin : TemporaryMonoBehaviourSingleton<ItemSpin>
 {
@@ -29,14 +29,14 @@ public class ItemSpin : TemporaryMonoBehaviourSingleton<ItemSpin>
         itemText.LoadText();
     }
 
-    private void LoadDataItem()
+    public void LoadDataItem()
     {
         gold = DatabaseManager.LoadData<int>(DatabaseManager.DatabaseKey.Gold);
         hint = DatabaseManager.LoadData<int>(DatabaseManager.DatabaseKey.Hint);
         undo = DatabaseManager.LoadData<int>(DatabaseManager.DatabaseKey.Undo);
         shuffle = DatabaseManager.LoadData<int>(DatabaseManager.DatabaseKey.Shuffle);
     }
-    private void SaveDataItem()
+    public void SaveDataItem()
     {
         DatabaseManager.SaveData<int>(DatabaseManager.DatabaseKey.Gold, gold);
         DatabaseManager.SaveData<int>(DatabaseManager.DatabaseKey.Hint, hint);
@@ -60,9 +60,10 @@ public class ItemSpin : TemporaryMonoBehaviourSingleton<ItemSpin>
         LoadDataItem();
         LoadText();
         itemText.LoadText();
+
     }
 
-    private void LoadText()
+    public void LoadText()
     {
         updateText(goldText, gold);
         updateText(hintText, hint);

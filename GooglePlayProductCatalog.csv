@@ -1,0 +1,9 @@
+Product ID,Published State,Purchase Type,Auto Translate,Locale; Title; Description,Auto Fill Prices,Price,Pricing Template ID
+com.ace.match.animal.remove.ads,published,managed_by_android,false,en_US;Remove ads;Buy Remove ads,true,3990000,
+com.ace.match.animal.mini.combo.pack,published,managed_by_android,false,en_US;Mini Combo Pack;Buy Mini Combo Pack,true,1990000,
+com.ace.match.animal.small.combo.pack,published,managed_by_android,false,en_US;Small Combo Pack;Buy Small Combo Pack,true,4990000,
+com.ace.match.animal.large.combo.pack,published,managed_by_android,false,en_US;Large Combo Pack;Buy Large Combo Pack,true,9990000,
+com.ace.match.animal.mini.coin.sale,published,managed_by_android,false,en_US;Mini Coin Sale;Buy Mini Coin Sale,true,990000,
+com.ace.match.animal.small.coin.sale,published,managed_by_android,false,en_US;Small Coin Sale;Buy Small Coin Sale,true,4990000,
+com.ace.match.animal.large.coin.sale,published,managed_by_android,false,en_US;Large Coin Sale;Buy Large Coin Sale,true,9990000,
+com.ace.match.animal.large.coin.pack1,published,managed_by_android,false,en_US;Large Coin Sale;Buy Large Coin Sale,true,990000,
