@@ -30,4 +30,8 @@ public class IAPSystem : MonoBehaviour
     {
         Debug.Log("Remove ads completed");
     }
+    public void OnTransactionRestore()
+    {
+        Debug.Log("Transaction restore");
+    }
 }
