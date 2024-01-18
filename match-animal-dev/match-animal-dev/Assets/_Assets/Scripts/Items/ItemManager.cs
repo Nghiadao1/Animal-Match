@@ -23,11 +23,10 @@ public class ItemManager : TemporaryMonoBehaviourSingleton<ItemManager>
     {
         if (ItemManagers(itemSpin.undo)) return;
         Debug.Log("ReturnItem");
-        StartCoroutine(ReturnCoroutine());
+        Invoke("Return", 0.2f);
     }
-    public IEnumerator ReturnCoroutine()
+    public void Return()
     {
-        yield return new WaitForSeconds(0.2f);
         itemReturn.UndoPiece();
         GameManager.OnCheckIsBlocked();
         itemSpin.undo--;
@@ -44,11 +43,17 @@ public class ItemManager : TemporaryMonoBehaviourSingleton<ItemManager>
     public void ShuffleItem()
     {
         if (ItemManagers(itemSpin.shuffle)) return;
-        Debug.Log("ShuffleItem");
-        itemShuffle.ShufflePiece();
         itemSpin.shuffle--;
+        Debug.Log("ShuffleItem");
+        Shuffle();
+    }
+
+    public void Shuffle()
+    {
+        itemShuffle.ShufflePiece();
         itemSpin.SetDataValues();
     }
+
     public IEnumerator HintPieceCoroutine()
     {
         yield return new WaitForSeconds(1f);

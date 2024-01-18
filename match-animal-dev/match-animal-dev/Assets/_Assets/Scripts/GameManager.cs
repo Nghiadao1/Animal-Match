@@ -96,7 +96,7 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
     }
     public void UnlockLevel(int level)
     {
-        foreach (GameObject levelObject in Levels.Instance.levels)
+        foreach (GameObject levelObject in Levels.levels)
         {
             ButtonLevels buttonLevels = levelObject.GetComponent<ButtonLevels>();
             if (buttonLevels._level == level)

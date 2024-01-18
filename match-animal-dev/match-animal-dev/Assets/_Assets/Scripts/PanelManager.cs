@@ -18,7 +18,20 @@ public class PanelManager : TemporaryMonoBehaviourSingleton<PanelManager>
     public GameObject panelLuckySpin;
     public GameObject panelDailyReward;
     public GameObject panelHomeScene;
-
+    public GameObject panelLoading;
+    // void Start()
+    // {
+    //     HideAllPanel();
+    // }
+    public void ShowPanelLoading()
+    {
+        panelLoading.SetActive(true);
+        Invoke("HidePanelLoading", 1f);
+    }
+    public void HidePanelLoading()
+    {
+        panelLoading.SetActive(false);
+    }
     public void ShowPanelHomeScene()
     {
         panelHomeScene.SetActive(true);

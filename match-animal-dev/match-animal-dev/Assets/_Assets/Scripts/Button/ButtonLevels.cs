@@ -10,7 +10,6 @@ public class ButtonLevels : MonoBehaviour
     public GameObject lockLevel;
     // Start is called before the first frame update
     public int _level;
-    private Levels Levels => Levels.Instance;
 
     void Start()
     {

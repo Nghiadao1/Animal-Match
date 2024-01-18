@@ -11,23 +11,43 @@ public class ButtonManager : MonoBehaviour
     private GameManager GameManager => GameManager.Instance;
     public void ButtonNextLevel()
     {
-        GameManager.NextLevel();
         PanelManager.HideAllPanel();
+        PanelManager.ShowPanelLoading();
+        Invoke("NextLevel", 1f);
     }
+
+    private void NextLevel()
+    {
+        GameManager.NextLevel();
+    }
+
     public void ButtonRestart()
     {
         PanelManager.HidePanelSetting();
+        PanelManager.ShowPanelLoading();
+        Invoke("Restart", 1f);
+    }
+
+    private void Restart()
+    {
         GameManager.Restart();
         PieceItemManager.InitPieceLayer();
         PieceItemManager.RestartLayer();
-        ItemManager.ShuffleItem();
+        ItemManager.Shuffle();
     }
+
     public void ButtonContinue()
     {
         PanelManager.HidePanelLose();
-        ItemManager.ReturnItem();
+        Continue();
+    }
+
+    private void Continue()
+    {
+        ItemManager.Return();
         StartCoroutine(ContinueShuffle());
     }
+
     public IEnumerator ContinueShuffle()
     {
         yield return new WaitForSeconds(1f);
@@ -129,8 +149,9 @@ public class ButtonManager : MonoBehaviour
     }
     public void ButtonCloseHomeScene()
     {
-        ButtonRestart();
         PanelManager.HidePanelHomeScene();
+        PanelManager.ShowPanelLoading();
+        ButtonRestart();
     }
     public void ButtonOpenLose()
     {
