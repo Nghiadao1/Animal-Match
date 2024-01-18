@@ -2,16 +2,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
 using UnityEngine.SceneManagement;
-
+using System.Collections;
+using System.Collections.Generic;
+public enum RewardType
+{
+    Coin,
+    Item
+}
 
 public class RewardAd : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
 {
     [SerializeField] Button _showAdButton;
+    public RewardType rewardType;
     [SerializeField] string _androidAdUnitId = "Rewarded_Android";
     [SerializeField] string _iOSAdUnitId = "Rewarded_iOS";
     string _adUnitId = null; // This will remain null for unsupported platforms
     private bool _rewardGiven = false;// write by I am
-
+    private static ItemSpin itemSpin => ItemSpin.Instance;
     void Awake()
     {
         // Get the Ad Unit ID for the current platform:
@@ -24,7 +31,23 @@ public class RewardAd : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListe
         // Disable the button until the ad is ready to show:
         _showAdButton.interactable = false;
     }
+    void Update()
+    {
+        ReLoadAd();
+    }
 
+    private void ReLoadAd()
+    {
+        //if ads not load beffore 5 second reload ads
+        if (_showAdButton.interactable == false) StartCoroutine(ReloadAds());
+    }
+
+    //couroutine reload ads
+    IEnumerator ReloadAds()
+    {
+        yield return new WaitForSeconds(5f);
+        LoadAd();
+    }
     // Call this public method when you want to get an ad ready to show.
     public void LoadAd()
     {
@@ -74,10 +97,42 @@ public class RewardAd : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListe
         }
     }
 
-    private static void Rewards()
+    private void Rewards()
     {
-        ItemSpin.Instance.gold += 300;
-        ItemSpin.Instance.SetDataValues();
+        TypeRewards(rewardType);
+        itemSpin.SetDataValues();
+    }
+
+    private void TypeRewards(RewardType rewardType)
+    {
+        if (rewardType == RewardType.Coin) RewardCoin();
+        else if (rewardType == RewardType.Item) RewardItems();
+    }
+
+    private static void RewardCoin()
+    {
+        itemSpin.gold += 300;
+    }
+    private static void RewardItems()
+    {
+        RewardHint();
+        RewardUndo();
+        RewardShuffle();
+    }
+
+    private static void RewardShuffle()
+    {
+        itemSpin.shuffle += 1;
+    }
+
+    private static void RewardUndo()
+    {
+        itemSpin.undo += 1;
+    }
+
+    private static void RewardHint()
+    {
+        itemSpin.hint += 1;
     }
 
     void ReloadScene()
