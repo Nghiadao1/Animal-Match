@@ -19,10 +19,6 @@ public class PanelManager : TemporaryMonoBehaviourSingleton<PanelManager>
     public GameObject panelDailyReward;
     public GameObject panelHomeScene;
     public GameObject panelLoading;
-    // void Start()
-    // {
-    //     HideAllPanel();
-    // }
     public void ShowPanelLoading()
     {
         panelLoading.SetActive(true);

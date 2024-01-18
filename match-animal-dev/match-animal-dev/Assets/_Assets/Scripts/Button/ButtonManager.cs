@@ -63,6 +63,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void ButtonOpenLevelMenu()
     {
+        PanelManager.HideAllPanel();
         PanelManager.ShowPanelLevelMenu();
     }
     public void ButtonCloseLevelMenu()

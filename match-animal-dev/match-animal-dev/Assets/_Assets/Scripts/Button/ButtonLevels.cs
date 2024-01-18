@@ -49,8 +49,14 @@ public class ButtonLevels : MonoBehaviour
     {
         if (!IsLock())
         {
-            GameManager.Instance.LoadLevel(_level);
             PanelManager.Instance.HideAllPanel();
+            PanelManager.Instance.ShowPanelLoading();
+            Invoke("LoadLevel", 0.5f);
         }
+    }
+
+    private void LoadLevel()
+    {
+        GameManager.Instance.LoadLevel(_level);
     }
 }
