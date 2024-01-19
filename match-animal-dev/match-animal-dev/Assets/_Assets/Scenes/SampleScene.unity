@@ -220,7 +220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5944890
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19615,7 +19615,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &708253268
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30908,6 +30908,7 @@ MonoBehaviour:
   shouldLog: 1
   _piecePairs: []
   waitPieces: []
+  soundManager: {fileID: 1412043559}
 --- !u!1 &1092422223
 GameObject:
   m_ObjectHideFlags: 0
@@ -56937,6 +56938,7 @@ GameObject:
   - component: {fileID: 2009566233}
   - component: {fileID: 2009566232}
   - component: {fileID: 2009566231}
+  - component: {fileID: 2009566234}
   m_Layer: 5
   m_Name: Sound
   m_TagString: Untagged
@@ -57009,7 +57011,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2009566232}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2009566234}
+        m_TargetAssemblyTypeName: SoundSetting, Assembly-CSharp
+        m_MethodName: SetSoundImage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2009566232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57048,6 +57062,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2009566229}
   m_CullTransparentMesh: 1
+--- !u!114 &2009566234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009566229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a97893c68d0b144bd9ed8b73eb6ec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundOnImage: {fileID: 5944889}
+  soundOffIamge: {fileID: 708253267}
+  isSoundOn: 0
 --- !u!1 &2009981755
 GameObject:
   m_ObjectHideFlags: 0
@@ -57501,7 +57530,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2023424507
 RectTransform:
   m_ObjectHideFlags: 0
