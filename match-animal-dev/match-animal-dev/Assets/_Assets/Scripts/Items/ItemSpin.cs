@@ -47,7 +47,7 @@ public class ItemSpin : TemporaryMonoBehaviourSingleton<ItemSpin>
     public void Spin()
     {
         float randomZ = Random.Range(1080f, 1440f);
-        wheelContent.transform.DOLocalRotate(new Vector3(0, 0, randomZ), 2f, RotateMode.FastBeyond360).SetEase(Ease.OutCubic).OnComplete(() =>
+        wheelContent.transform.DOLocalRotate(new Vector3(0, 0, randomZ), 7f, RotateMode.FastBeyond360).SetEase(Ease.OutCubic).OnComplete(() =>
         {
             RewardItemSpin(randomZ);
             SetDataValues();

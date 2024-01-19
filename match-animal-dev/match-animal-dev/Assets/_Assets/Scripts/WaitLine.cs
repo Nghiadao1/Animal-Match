@@ -52,6 +52,7 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
     PieceItemManager PieceItemManager => PieceItemManager.Instance;
     public bool CanPutOn => !IsFull();
     private GameManager GameManager => GameManager.Instance;
+    public SoundManager soundManager;
     void Start()
     {
         Init();
@@ -107,6 +108,7 @@ public class WaitLine : TemporaryMonoBehaviourSingleton<WaitLine>
             piecePair.Clean();
             Remove(piecePair);
             Log($"PiecePair {piecePair.Type} has matches");
+            soundManager.PlaySound(6);
         }
         Invoke("ArrangePiece", 0.5f);
     }

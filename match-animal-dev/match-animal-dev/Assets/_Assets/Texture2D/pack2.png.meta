@@ -1193,7 +1193,7 @@ TextureImporter:
         serializedVersion: 2
         x: 394
         y: 761
-        width: 48
+        width: 88
         height: 63
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1204,27 +1204,6 @@ TextureImporter:
       bones: []
       spriteID: 7d83aa50ab50c5543b7df8332a4a9428
       internalID: 209354868
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pack2_52
-      rect:
-        serializedVersion: 2
-        x: 449
-        y: 776
-        width: 33
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d2bf140c4fde9624188d4cd118ba7339
-      internalID: -64143431
       vertices: []
       indices: 
       edges: []

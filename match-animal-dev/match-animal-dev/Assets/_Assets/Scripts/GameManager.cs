@@ -18,6 +18,7 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
     private PieceItemManager PieceItemManager => PieceItemManager.Instance;
     private PanelManager PanelManager => PanelManager.Instance;
     private GameState GameState => GameState.Instance;
+    public SoundManager soundManager;
     public UnityEvent OnPieceMatches
     {
         get => onPieceMatches;
@@ -33,6 +34,11 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
     }
     private void Init()
     {
+        LoadDataLevel();
+    }
+
+    private void LoadDataLevel()
+    {
         Level = DatabaseManager.LoadData<int>(DatabaseManager.DatabaseKey.Level, "1");
         LoadData(Level);
         OnPieceMatches.AddListener(() => { Debug.LogError(" OnPieceMatches!"); });
@@ -46,6 +52,12 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
 
     public void Pick(PieceItemHandler pieceItem)
     {
+        PlaySound();
+        OnPick(pieceItem);
+    }
+
+    private void OnPick(PieceItemHandler pieceItem)
+    {
         if (WaitLine.CanPutOn && pieceItem._canPutOn)
         {
             ItemManager.Instance.AddInfoPiece(pieceItem);
@@ -56,6 +68,12 @@ public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
         else if (!WaitLine.CanPutOn) LoseGame();
         else Debug.Log("Can't put on");
     }
+
+    private void PlaySound()
+    {
+        soundManager.PlaySound(0);
+    }
+
     public void WinGame()
     {
         if (PieceItemManager.IsWin) PanelManager.ShowPanelWin();
