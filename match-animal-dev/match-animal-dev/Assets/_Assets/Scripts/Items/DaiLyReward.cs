@@ -44,8 +44,11 @@ public class DaiLyReward : MonoBehaviour
     }
     public void CollectReward()
     {
-        if (isCanCollect) Collect();
-        Invoke("HidePanelDailyReward", 0.5f);
+        if (isCanCollect)
+        {
+            Collect();
+            Invoke("HidePanelDailyReward", 0.5f);
+        }
     }
     private void HidePanelDailyReward()
     {

@@ -8,7 +8,6 @@ using UnityEngine.Events;
 
 public class GameManager : TemporaryMonoBehaviourSingleton<GameManager>
 {
-
     public int Level;
     private int _LevelUnlockMax;
     [SerializeField] private UnityEvent onPieceMatches;
