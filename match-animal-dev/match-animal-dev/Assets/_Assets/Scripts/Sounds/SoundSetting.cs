@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -24,14 +23,14 @@ public class SoundSetting : MonoBehaviour
         SoundManager.instance.PlaySound(0);
         SoundManager.instance.audioSource.mute = false;
         isSoundOff = false;
-        DatabaseManager.SaveData(DatabaseManager.DatabaseKey.Sound, !GetIsSoundOff());
+        SaveSoundValue();
     }
     public void TurnOffSound()
     {
         SoundManager.instance.PlaySound(0);
         SoundManager.instance.audioSource.mute = true;
         isSoundOff = true;
-        DatabaseManager.SaveData(DatabaseManager.DatabaseKey.Sound, !GetIsSoundOff());
+        SaveSoundValue();
     }
     public void SetSoundImage()
     {
@@ -65,6 +64,6 @@ public class SoundSetting : MonoBehaviour
     }
     private void SaveSoundValue()
     {
-        DatabaseManager.SaveData(DatabaseManager.DatabaseKey.Sound, GetIsSoundOff());
+        DatabaseManager.SaveData(DatabaseManager.DatabaseKey.Sound, !GetIsSoundOff());
     }
 }

@@ -11,7 +11,8 @@ public class DatabaseManager : MonoBehaviour
         Hint,
         Undo,
         Shuffle,
-        Sound
+        Sound,
+        Day,
     }
 
     // Generic method to save data to PlayerPrefs
